@@ -1,0 +1,21 @@
+baseURL: 'https://cristian.livadaru.net'
+languageCode: en-us
+title: My personal view on things
+theme: hugo-theme-cleanwhite
+copyright: Cristian Livadaru
+pluralizeListTitles: false
+pygmentsUseClasses: true
+pygmentsCodeFences: true
+disablePathToLower: true
+enableRobotsTXT: true
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 1
+    endLevel: 9
+taxonomies:
+  tag: tags
+permalinks:
+  post: /:slug/
