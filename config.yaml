@@ -16,6 +16,22 @@ markup:
     startLevel: 1
     endLevel: 9
 taxonomies:
+  category: categories
   tag: tags
 permalinks:
   post: /:slug/
+outputs:
+  home:
+    - HTML
+    - RSS
+      #    - Algolia
+params:
+  header_image: 'header/dominik-vanyi-410261-2.jpg'
+  social:
+    rss: true
+      # email: youremail@gmail.com
+    linkedin: 'https://www.linkedin.com/in/livadaru'
+      # stackoverflow: 'https://stackoverflow.com/users/1373026'
+    twitter: https://twitter.com/crisl_at
+    github: 'https://github.com/lcx'
+# see all settings here https://github.com/zhaohuabing/hugo-theme-cleanwhite/blob/master/exampleSite/config.toml
