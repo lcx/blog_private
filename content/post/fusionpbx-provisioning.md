@@ -22,23 +22,23 @@ Yes I know there are a lot of if's here but it is very simple to solve so why no
 
 I will assume you already have provisioning enabled, if not got to the default settings and set the `enabled` setting under provisioning to `true` and also to `enabled`, otherwise the whole provisioning thing will not work.
 
-![FusionPBX Provisioning enable](__GHOST_URL__/content/images/2018/11/2018-11-15_14-29-55.png)
+![FusionPBX Provisioning enable](/images/2018/11/2018-11-15_14-29-55.png)
 
 You might not know that you can override default settings for every domain, fusionpbx first uses the domain settings and if they are missing it will fail over to the default settings! It's awesome for what you need to set up separate provisioning settings for each client. 
 To accomplish this, go to advanced -> domain and click on the domain, not the edit pencil on the right, you have to click on the domain.
 
-![Fusionpbx Domains](__GHOST_URL__/content/images/2018/11/2018-11-15_15-30-34.png)
+![Fusionpbx Domains](/images/2018/11/2018-11-15_15-30-34.png)
 
 After you click on the domain, you click on the plus sign on the right side, this will allow you to create settings valid for this domain only!
 
-![FusionPBX Domain Settings](__GHOST_URL__/content/images/2018/11/2018-11-15_15-45-39.png)
+![FusionPBX Domain Settings](/images/2018/11/2018-11-15_15-45-39.png)
 
 Create settings for http_auth_password and http_auth_user if you want separate users for HTTP provisioning auth. 
 
-![2018-11-15_15-46-25](__GHOST_URL__/content/images/2018/11/2018-11-15_15-46-25.png)
+![2018-11-15_15-46-25](/images/2018/11/2018-11-15_15-46-25.png)
 
 after you have done this, it should look something like this.
-![2018-11-15_15-37-03](__GHOST_URL__/content/images/2018/11/2018-11-15_15-37-03.png)
+![2018-11-15_15-37-03](/images/2018/11/2018-11-15_15-37-03.png)
 
 that's it, you have now created a custom http auth user + password that will be used for provisioning only for this domain.
 

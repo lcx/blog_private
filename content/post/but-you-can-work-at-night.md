@@ -6,7 +6,7 @@ categories:
 date: "2021-02-20T15:01:49Z"
 description: ""
 draft: false
-image: __GHOST_URL__/content/images/2021/02/63728203-044B-46F3-A634-1B7E0D2CB87E.jpeg
+image: /images/2021/02/63728203-044B-46F3-A634-1B7E0D2CB87E.jpeg
 slug: but-you-can-work-at-night
 summary: It’s interesting seeing the way people without children think about how life
   is with kids but also how people think about work and spare time. I don't blame

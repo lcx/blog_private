@@ -24,7 +24,7 @@ Since Safari doesn't really handle input type="date" very good (actually not at 
 Tested the date picker locally, everything works as expected and deployed to production, on Friday. 
 "It's just a date picker, what could possibly go wrong" 
 
-![deploy](__GHOST_URL__/content/images/2018/07/deploy.gif)
+![deploy](/images/2018/07/deploy.gif)
 
 Well, apparently a lot. picdate.js adds a hidden `_submit` field which rails does not like at all (See [github issue](https://github.com/amsul/pickadate.js/issues/227#issuecomment-32119529)). 
 
@@ -117,11 +117,11 @@ Of course, this can't confirm if the data was saved in the database and so on, b
 
 If you now look at your cypress window, you can see your newly created spec. 
 
-![2018-07-24_13-11-14](__GHOST_URL__/content/images/2018/07/2018-07-24_13-11-14.png)
+![2018-07-24_13-11-14](/images/2018/07/2018-07-24_13-11-14.png)
 
 Click on run all specs and watch the magic happen. 
 
-![mind-blown](__GHOST_URL__/content/images/2018/07/mind-blown.gif)
+![mind-blown](/images/2018/07/mind-blown.gif)
 
 This is all great, but wouldn't it be nice if specs just run after you push your code to gitlab? 
 Well, you're in luck since this is exactly what I already did and I'll show you how to do this [in part 2 of this blog](__GHOST_URL__/cypress-and-gitlab-ci-part2/).

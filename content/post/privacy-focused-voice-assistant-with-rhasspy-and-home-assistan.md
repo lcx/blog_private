@@ -93,7 +93,7 @@ While this is running, you can continue to prepare home assistant.
 
 Go to Configuration -> Add-ons -> Add-on Store, click on the dots on the upper right and click on Repositories after which you add the Rhasspy repository [https://github.com/synesthesiam/hassio-addons](https://github.com/synesthesiam/hassio-addons)
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-17.47.34@2x.png" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-17.47.34@2x.png" >}}
 
 After that you can install the Rhasspy Assistant and open the Rhasspy Web UI
 
@@ -103,11 +103,11 @@ This will be the so called Base System, not the satellite running on the separat
 
 Go to Settings, set MQTT to external and enter the IP of your home assistant + MQTT Credentials of the MQTT installed on home assistant. If you have not yet installed MQTT on home assistant, do so now.
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-17.50.19@2x.png" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-17.50.19@2x.png" >}}
 
 Go through each enabled setting and make sure to enter `satellite` under the siteIds. You can rename it later, or add other siteIds, I just stuck with the same value used in the Rhasspy documentation.
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-17.52.20@2x.png" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-17.52.20@2x.png" >}}
 
 Once this is done, save, download whatever rhasspy might need to download and go back to the satellite.
 
@@ -117,13 +117,13 @@ Open the Web UI of the satellite which should be running on the raspberry ip + p
 
 Set the siteId to `satellite` configure MQTT to connect to the same home assistant MQTT as the base system and enable services as follows.
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-17.56.04@2x.png" caption="Rhasspy settings on satellite" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-17.56.04@2x.png" caption="Rhasspy settings on satellite" >}}
 
 ### Setup Audio recording
 
 Select the Matrix-sound as microphone for the audio recordings. I was offered two options, the first one with MATRIXIO-SOUND worked for me so I went with that one. You might have to experiment what works for you.
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-17.56.37@2x.png" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-17.56.37@2x.png" >}}
 
 Set the UDP Audio port to 12202 or any other free port on the satellite system. You can read more about this in the rhasspy ["Server with Satellites" documentation](https://rhasspy.readthedocs.io/en/latest/tutorials/#server-with-satellites)
 
@@ -145,7 +145,7 @@ On the base Rhasspy (the one running on home assistant) under settings -> Intent
 
 Enter the home assistant IP + Port and a long lived token, select "Send Intents to Home Assistant" and don't forget to enter `satellite` under Satellite siteIDs.
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-18.06.34@2x.png" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-18.06.34@2x.png" >}}
 
 To get a long lived Home Assitant token, click on your username on the bottom left (in home assistant) then scroll all the way down and click add token.
 
@@ -169,7 +169,7 @@ wait, wtf is this?
 
 If you look at your Rhasspy (on the satellite) under sentences, you will see an initial configuration like this:
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-18.17.59@2x.png" caption="default sentences in rhasspy" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-18.17.59@2x.png" caption="default sentences in rhasspy" >}}
 
 This means the voice command "whats the temperature" will be converted to a `GetTemperature` intent, which we just configured in home assistant to execute the action `service: tts.amazon_polly_say` with the data `message: Hello from an intent!` and `entity_id: media_player.lindeman` (yes I might listen too much Rammstein 🤷🏻‍♂️)
 
@@ -198,11 +198,11 @@ This assumes that you have node red installed on your home assistant, and if you
 
 Create a small flow, a mqtt subscription to `action/get_time` with a debug node.
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-18.26.31@2x.png" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-18.26.31@2x.png" >}}
 
 Now speak your magic wake word and the command "What time is it" and keep an eye on the node red debug window
 
-{{< figure src="__GHOST_URL__/content/images/2022/04/CleanShot-2022-04-22-at-18.27.48@2x.png" >}}
+{{< figure src="/images/2022/04/CleanShot-2022-04-22-at-18.27.48@2x.png" >}}
 
 Tada 🎉 our command was converted to an intent on the satellite system, sen't to the base system which then send's it to home assistant and this triggers the Intent script which pushes to `action/get_time` in MQTT and we finally have our debug message.
 

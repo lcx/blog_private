@@ -19,7 +19,7 @@ title: Assets missing in Rails Docker container
 
 I've fallen for this several times and every time I forget about it, so time to put it in a blog post, next time I will google for this issue I might find my own post.
 
-{{< figure src="__GHOST_URL__/content/images/2020/03/wisdom_of_the_ancients.png" caption="xkcd comic \"Wisdom of the Ancients\"" >}}
+{{< figure src="/images/2020/03/wisdom_of_the_ancients.png" caption="xkcd comic \"Wisdom of the Ancients\"" >}}
 
 ## Enable Serve Static Files
 

@@ -5,7 +5,7 @@ categories:
 date: "2020-01-21T06:44:17Z"
 description: ""
 draft: false
-image: __GHOST_URL__/content/images/2020/01/malaga-tree.jpeg
+image: /images/2020/01/malaga-tree.jpeg
 slug: why-we-love-malaga
 summary: My wife and I have been traveling to Málaga since 2007.  There are so many
   memories we made and so many more to be made, so many adventures and short mini-trips
@@ -30,7 +30,7 @@ But how did this passion for Málaga even start?Well, this is kind of a funny st
 It took some years until we finally traveled for the first time to Málaga and I also don’t recall why exactly Málaga. I do recall that my ex-wife and I were looking at a site where they had fincas and rural houses you could stay at. We decided to go to a place called Cantueso in Periana, about 70 km from the airport in Málaga. We never regretted this decision and we came back to Cantueso two more times after that and still is on our my list to go back to very soon. The webcam from Cantueso became a go-to place when I was feeling down due to the weather in Austria.
 
 {{< gallery caption="Winter getaway" >}}
-{{< galleryImg  src="__GHOST_URL__/content/images/2020/01/andalusia-lake.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="__GHOST_URL__/content/images/2020/01/hills-of-andalusia.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="__GHOST_URL__/content/images/2020/01/malaga-tree-1.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="__GHOST_URL__/content/images/2020/01/view-from-periana.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="__GHOST_URL__/content/images/2020/01/wine-and-cigars.jpeg" width="2298" height="3456" >}}{{< /gallery >}}
+{{< galleryImg  src="/images/2020/01/andalusia-lake.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="/images/2020/01/hills-of-andalusia.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="/images/2020/01/malaga-tree-1.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="/images/2020/01/view-from-periana.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="/images/2020/01/wine-and-cigars.jpeg" width="2298" height="3456" >}}{{< /gallery >}}
 
 ## Great starting place
 

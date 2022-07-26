@@ -20,7 +20,7 @@ Instead of just deleting the mail, I thought to strike back and flood the site w
 First, you need some proxy or a new server, you could use [DigitalOcean](https://m.do.co/c/bbc69fd7ab10) for example.
 Then you need to get the form fields that need to be filled: 
 
-![2018-08-01_15-54-42](__GHOST_URL__/content/images/2018/08/2018-08-01_15-54-42.png)
+![2018-08-01_15-54-42](/images/2018/08/2018-08-01_15-54-42.png)
 
 Put everything in this python script (source: https://en.internetwache.org/pwning-a-paypal-phishing-site-11-03-2013/) 
 
@@ -60,7 +60,7 @@ Run the script and leave it running, this will flood the phisher with a lot of f
 
 Apparently, after 4k Mails, the phisher blocked my IP. Looks like someone want's to play. Ok, let's go, my friend. 
 
-![2018-08-01_16-48-38](__GHOST_URL__/content/images/2018/08/2018-08-01_16-48-38.png)
+![2018-08-01_16-48-38](/images/2018/08/2018-08-01_16-48-38.png)
 
 On your machine create a file called `flood-hosts` and add each IP of your server in this file, one line per IP. 
 

@@ -97,7 +97,7 @@ cypress:
 
 You need to add a new variable in gitlab called LOCO_API (You can find it in your project -> Settings -> CI/CD -> Variables 
 
-![2018-07-24_14-15-07](__GHOST_URL__/content/images/2018/07/2018-07-24_14-15-07.png)
+![2018-07-24_14-15-07](/images/2018/07/2018-07-24_14-15-07.png)
 
 Here you will have to add the Locomotive CMS API Key for the newly created user (You can get that after logging in with the user, click on your name, Account settings -> API).
 

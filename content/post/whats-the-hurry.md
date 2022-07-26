@@ -32,5 +32,5 @@ When we got back and left the subway (we have about a 3 minute walk home from th
 
 I should have taken the car...
 
-{{< figure src="__GHOST_URL__/content/images/2019/08/whats_the_hurry.jpg" caption="" >}}
+{{< figure src="/images/2019/08/whats_the_hurry.jpg" caption="" >}}
 

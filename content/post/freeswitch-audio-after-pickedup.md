@@ -24,7 +24,7 @@ In the Dialplan, before transfering the call, add an `execute_on_answer` with `n
 action export: nolocal:execute_on_answer=playback /var/lib/freeswitch/recordings/<DOMAIN>/<WAV FILE>
 ```
 
-![2018-06-08_13-54-15-1](__GHOST_URL__/content/images/2018/06/2018-06-08_13-54-15-1.png)
+![2018-06-08_13-54-15-1](/images/2018/06/2018-06-08_13-54-15-1.png)
 
 There is one issue with this, the audio starts playing much to fast, so add some blank audio at the beginning.
 

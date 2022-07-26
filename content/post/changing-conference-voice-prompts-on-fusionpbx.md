@@ -24,15 +24,15 @@ Keep in mind, this setting applies to all domains!
 Go to Apps -> Conference Profiles and edit the profile you want. 
 If you want different settings (different Domains for example), you could copy the profile and create separate profiles with different languages.
 
-![2017-12-12_17-37-18](__GHOST_URL__/content/images/2017/12/2017-12-12_17-37-18.png)
+![2017-12-12_17-37-18](/images/2017/12/2017-12-12_17-37-18.png)
 
 Click + to add a new value
 
-![2017-12-12_17-38-10](__GHOST_URL__/content/images/2017/12/2017-12-12_17-38-10.png)
+![2017-12-12_17-38-10](/images/2017/12/2017-12-12_17-38-10.png)
 
 and add a parameter sound_prefix with the path to your language files
 
-![2017-12-12_17-38-19](__GHOST_URL__/content/images/2017/12/2017-12-12_17-38-19.png)
+![2017-12-12_17-38-19](/images/2017/12/2017-12-12_17-38-19.png)
 
 save and you're done!
 

@@ -5,7 +5,7 @@ categories:
 date: "2021-07-25T14:50:29Z"
 description: ""
 draft: false
-image: __GHOST_URL__/content/images/2021/07/john-hult-uh0u8OH4zuE-unsplash.jpg
+image: /images/2021/07/john-hult-uh0u8OH4zuE-unsplash.jpg
 slug: im-sorry
 summary: This is the usual answer I get when I mention the fact that I’m divorced.
   Then there is the “failed marriage” thing I hear and read everywhere. I have to

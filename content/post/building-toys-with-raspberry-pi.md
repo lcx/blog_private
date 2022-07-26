@@ -19,7 +19,7 @@ title: Building toys with raspberry PI
 
 I always wanted to build something cool and fun for my daughter (6 years old) with a raspberry pi but didn't really have an idea where to start until one day she was in my office, I had the raspberry on my desk with a sense hat but it was not plugged in and she asked me what this is so I plugged in the Raspberry and the Sense hat lit up and filled the screen with a rainbow.
 
-{{< figure src="__GHOST_URL__/content/images/2019/09/raspberry-sense-hat.jpg" caption="Raspberry Sense hat" >}}
+{{< figure src="/images/2019/09/raspberry-sense-hat.jpg" caption="Raspberry Sense hat" >}}
 
 <iframe src="https://giphy.com/embed/Nm8ZPAGOwZUQM" width="480" height="454" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/reaction-Nm8ZPAGOwZUQM">via GIPHY</a></p>
 
@@ -132,7 +132,7 @@ it should at startup print the IP it got, but in my first tests it was blank, mi
 
 Now boot up the raspberry and have fun!
 
-{{< figure src="__GHOST_URL__/content/images/2019/09/raspberry-sense-hat-text-scroll.jpg" caption="Scrolling text on the sense hat" >}}
+{{< figure src="/images/2019/09/raspberry-sense-hat-text-scroll.jpg" caption="Scrolling text on the sense hat" >}}
 
 
 

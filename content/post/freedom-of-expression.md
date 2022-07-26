@@ -5,7 +5,7 @@ categories:
 date: "2022-01-28T05:21:50Z"
 description: ""
 draft: false
-image: __GHOST_URL__/content/images/2022/01/ayanfe-olarinde-wz48H7EZNbg-unsplash.jpg
+image: /images/2022/01/ayanfe-olarinde-wz48H7EZNbg-unsplash.jpg
 slug: freedom-of-expression
 summary: Freedom of expression can be a complicated thing. Accepting that someone
   protests against core values of yours isn’t easy. I strongly believe that you have
@@ -46,5 +46,5 @@ Around New Year’s Eve, some of the protesters where on the blocked constructio
 
 So someone almost got killed in a fire attack, and your response is: “suits you right if you want to stay there”I have nothing else to respond to this than: Fuck you!
 
-{{< figure src="__GHOST_URL__/content/images/2022/01/image.gif" >}}
+{{< figure src="/images/2022/01/image.gif" >}}
 

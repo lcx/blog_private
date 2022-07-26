@@ -3,7 +3,7 @@ author: Cristian Livadaru
 date: "2021-11-26T10:10:30Z"
 description: ""
 draft: false
-image: __GHOST_URL__/content/images/2021/11/antoine-giret-7_TSzqJms4w-unsplash.jpeg
+image: /images/2021/11/antoine-giret-7_TSzqJms4w-unsplash.jpeg
 slug: flooding-phishing-with-curl
 title: Flooding phishing forms with bash and curl
 ---
@@ -23,11 +23,11 @@ That's it for the packages, now you have something to generate usernames and pas
 
 Looking at the page sources shows two fields being used, a field email and password.
 
-{{< figure src="__GHOST_URL__/content/images/2021/11/CleanShot-2021-11-26-at-11.37.21.png" >}}
+{{< figure src="/images/2021/11/CleanShot-2021-11-26-at-11.37.21.png" >}}
 
 Now what happens once the user clicks on submit?
 
-{{< figure src="__GHOST_URL__/content/images/2021/11/CleanShot-2021-11-26-at-11.38.43.png" >}}
+{{< figure src="/images/2021/11/CleanShot-2021-11-26-at-11.38.43.png" >}}
 
 If the user has tried 3 times, a redirect to the real microsoft page will be triggered. The first requests however are passed on to a next.php via POST Request.
 

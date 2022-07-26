@@ -31,7 +31,7 @@ After being on a waiting list for several months I finally got my account. Every
 
 But now after almost 4 years I suddenly received a support email from holvi, you might know the ugly email from zendesk, so I didn't think much about it since they send such emails from time to time to announce maintenance or other issues. 
 
-![2018-06-01_11-55-48](__GHOST_URL__/content/images/2018/06/2018-06-01_11-55-48.png)
+![2018-06-01_11-55-48](/images/2018/06/2018-06-01_11-55-48.png)
 
 The subject just said: 
 
@@ -41,7 +41,7 @@ I like how the subject even says "Request Updated:" as if I have asked for suppo
 
 > You have a Holvi account for a company which is registered in a country no longer supported by Holvi.
 
-![wtf](__GHOST_URL__/content/images/2018/06/wtf.gif)
+![wtf](/images/2018/06/wtf.gif)
 
 My first reaction was: this must be an error, it happened before that I received an email regarding cancelation since an account to which I had access but wasn't mine, was declared as a personal account. 
 After several emails back and forth it was clear to me that this was no error and my account will be terminated in two months. 
@@ -50,7 +50,7 @@ It's not as if I could flip a switch and everything is changed, there is a lot o
 Now that those two months are over and my account was terminated yesterday I noticed that I can't even access any reports for that account. 
 This means that everything I need for the accounting from last month would be gone! Happily, we thought about that, saved the reports some days ago and holvi support did deliver me a PDF after a short rant at the support team. 
 
-![gfy](__GHOST_URL__/content/images/2018/06/gfy.gif)
+![gfy](/images/2018/06/gfy.gif)
 
 ## What went wrong?
 

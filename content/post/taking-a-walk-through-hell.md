@@ -5,7 +5,7 @@ categories:
 date: "2020-08-25T18:00:00Z"
 description: ""
 draft: false
-image: __GHOST_URL__/content/images/2020/09/8426C7F7-E4AF-4E4E-9133-277FB8618019.jpeg
+image: /images/2020/09/8426C7F7-E4AF-4E4E-9133-277FB8618019.jpeg
 slug: taking-a-walk-through-hell
 summary: "Lyrics from the Song „I don’t listen much“ from Junior. \nI’ve been playing
   this song several times since I found it on Spotify. Sometimes I find it uplifting,
@@ -26,7 +26,7 @@ read that yesterday, in a Pizzeria. Probably heard of it before, didn’t attrib
 
 I‘m not there yet however, I‘m still walking through hell, but I will come out of hell, I will not let anything keep me down, I will fall flat on my face, but I will stand up, brush the dust off and keep on going until at some point I can turn around, look at the hell I just walked through, smile and then continue my walk far far away from hell. Until then, I'll keep my mind on a leash from time to time.
 
-{{< figure src="__GHOST_URL__/content/images/2020/09/image.jpeg" caption="trying to keep my mind on a leash" >}}
+{{< figure src="/images/2020/09/image.jpeg" caption="trying to keep my mind on a leash" >}}
 
 _*Apparently “mind on a leash” means being drunk, this is not what I mean. Really. * takes another sip from the wine glass *_
 

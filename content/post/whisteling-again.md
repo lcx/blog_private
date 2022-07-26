@@ -5,7 +5,7 @@ categories:
 date: "2020-11-11T19:58:26Z"
 description: ""
 draft: false
-image: __GHOST_URL__/content/images/2020/11/174F2E46-219F-4AFB-8A14-6BB9DD0C3E6E.jpeg
+image: /images/2020/11/174F2E46-219F-4AFB-8A14-6BB9DD0C3E6E.jpeg
 slug: whisteling-again
 summary: “Dad, why are you whistling again?” asked my big daughter.I haven’t even
   noticed that I have stopped whistling. I didn’t notice that I stopped and didn’t
@@ -28,7 +28,7 @@ This has a huge impact on my free time, my mood, and almost every aspect of my l
 
 something like this:
 
-{{< figure src="__GHOST_URL__/content/images/2020/11/brain-let-me-sleep.jpg" caption="Let me sleep brain ..." >}}
+{{< figure src="/images/2020/11/brain-let-me-sleep.jpg" caption="Let me sleep brain ..." >}}
 
 But to get back to the doing less part ...Doing nothing is fine, reading some book that is not business-related is fine. Kindergarten shutting down and not being able to work is fine. Actually, holy crap, the first day the kindergarten was closed was one of my best days recently, and this only due to the fact that I accepted that there is no way in hell I could work so I didn’t even try. I took the spare moments when I got them to relax and the rest of the time I played with my little daughter while the big one was at school. These were all things that I couldn’t think of as being something possible in my life in the past years. I fully understand that there are people where their job does not allow for such freedoms, but I do have this possibility and I never took advantage of it.
 
