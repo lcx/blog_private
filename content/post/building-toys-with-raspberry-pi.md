@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- raspberry
-- kids
+- tech
 date: "2019-09-20T10:21:08Z"
 description: ""
 draft: false
@@ -111,7 +110,7 @@ Here's how it works, if you run the python script it will loop infinitely, read 
 
 ## Starting everything
 
-Now in order to start it on boot, create this little shell script and add it to cron like this `@reboot /root/sense_hat/start.sh` 
+Now in order to start it on boot, create this little shell script and add it to cron like this `@reboot /root/sense_hat/start.sh`
 
 ```bash
 #!/bin/bash

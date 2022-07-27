@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- linux
-- sysadmin
+- tech
 date: "2018-01-07T11:47:51Z"
 description: ""
 draft: false
@@ -13,20 +12,21 @@ summary: Adding new disks to a LSI controller, creating a new VD and extending a
 tags:
 - linux
 - sysadmin
+- raid
 title: Extending an LVM backed by an LSI RAID controller
 ---
 
 
 Since I always keep forgetting, here a reminder for myself how to add a new VD and extend the LVM. I usually keep forgetting the LSI commands.
-In this case, I had to extend an LVM to get some extra space, this means adding new disks, creating a new VD on the LSI controller and then extending the LVM volume group by this new VD. 
+In this case, I had to extend an LVM to get some extra space, this means adding new disks, creating a new VD on the LSI controller and then extending the LVM volume group by this new VD.
 
-After adding the new disk, check drive information to get the enclosure and slot. 
+After adding the new disk, check drive information to get the enclosure and slot.
 
 ```
 storcli /c0 /eall /sall show
 ```
 
-You should see the new disks in status "Ugood", so you need to create a new VD from the new disks. 
+You should see the new disks in status "Ugood", so you need to create a new VD from the new disks.
 In my case disk from slot 12 and 13 where the new disks so I created a new RAID1
 
 ```
@@ -34,7 +34,7 @@ storcli /c0 add vd type=r1 drives=8:12-13
 ```
 
 After this step, you need to start the init of the new vd.
-First look at which vd is your new one: 
+First look at which vd is your new one:
 
 ```
 storcli /c0 /vall show
@@ -57,7 +57,7 @@ DG/VD TYPE  State Access Consist Cache Cac sCC     Size Name
 ---------------------------------------------------------------
 ```
 
-Now Initialize the VD 
+Now Initialize the VD
 
 ```
 storcli /c0 /vx start init full
@@ -65,14 +65,14 @@ storcli /c0 /vx start init full
 
 /vx needs to be replaced by the virtual drive you created (in my case that would be /v4)
 
-and check progress with 
+and check progress with
 ```
 storcli /c0 /vx show init
 ```
 
-Now you can start partitioning the drive and add it to the lvm. 
+Now you can start partitioning the drive and add it to the lvm.
 
-A big warning here! **Don't do this before initializing the disks!** If for some reason you created the partition **before** the init - yes you can do that - then you end up with an inconsistent array, you will fiddle around to make the array consistent and at some point remember that you forgot the init, you trigger the init which will remove partition and your LVM will look like this: 
+A big warning here! **Don't do this before initializing the disks!** If for some reason you created the partition **before** the init - yes you can do that - then you end up with an inconsistent array, you will fiddle around to make the array consistent and at some point remember that you forgot the init, you trigger the init which will remove partition and your LVM will look like this:
 
 ```
 root@backup:~# pvs

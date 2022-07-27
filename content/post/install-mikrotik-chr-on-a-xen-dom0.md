@@ -1,7 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- sysadmin
+- tech
 date: "2018-10-12T11:15:19Z"
 description: ""
 draft: false
@@ -11,6 +11,8 @@ summary: If you want to play around with mikrotik or a need a mikrotik CHR, you 
   install it on XEN and run it without any issues.
 tags:
 - sysadmin
+- mikrotik
+- xen
 title: Install Mikrotik CHR on a XEN dom0
 ---
 

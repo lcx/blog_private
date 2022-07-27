@@ -1,7 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- children quotes
+- kids
 date: "2017-12-17T19:54:27Z"
 description: ""
 draft: false
@@ -16,10 +16,10 @@ title: Daddy, you lost!
 
 > Daddy, you lost
 
-says my 4 year old daughter out of the blue ... 
-Kind of confused I just wait to see what comes next. 
+says my 4 year old daughter out of the blue ...
+Kind of confused I just wait to see what comes next.
 
-> We are three girls, me, mom and my sister and you are one boy. The girls won, you lost. 
+> We are three girls, me, mom and my sister and you are one boy. The girls won, you lost.
 
 Yep, I'm doomed ...
 

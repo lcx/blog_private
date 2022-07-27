@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- business
-- burnout
+- life
 date: "2020-06-19T10:43:59Z"
 description: ""
 draft: false

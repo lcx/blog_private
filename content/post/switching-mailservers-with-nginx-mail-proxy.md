@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- sysadmin
-- linux
+- tech
 date: "2018-03-02T13:23:07Z"
 description: ""
 draft: false
@@ -14,6 +13,8 @@ summary: "Switching mailserver with lots of active users isn't an easy task. \nF
 tags:
 - sysadmin
 - linux
+- mail
+- nginx
 title: Switching mailservers with nginx as mail proxy
 ---
 
@@ -22,16 +23,16 @@ title: Switching mailservers with nginx as mail proxy
 
 I had this old server running Cyrus mail with which I was happy for several years. But over the time there were some issues and also I wanted to consolidate all mail accounts on the new ispconfig server running with dovecot.
 Dovecot and Postfix both support running with multiple server names and multiple SSL certificates in some way but that would imply that you could move all accounts at once to the new server which in itself is another huge task.
-Wouldn't it be nice if we could migrate a couple of accounts and switch them over to the new server without the users needing to change something? 
+Wouldn't it be nice if we could migrate a couple of accounts and switch them over to the new server without the users needing to change something?
 Actually, nginx does just that perfectly!
 
 ## Enter nginx IMAP / POP Proxy
 
-With nginx, you can set up an IMAP, POP, and even SMTP proxy, but I skipped the SMTP part since I let the users send the mail out through the old server, more about that later. 
-My idea was to set up a nginx proxy in front of the old and new mail server, depending if the user was already migrated sent the user to the new server else send the user to the old server. 
-In my case, I have a router in front of my servers so I can send the IMAP/POP ports to the proxy instead of the real server. If you don't have this, you would need to move your SMTP and IMAP server on a different port put nginx on the mail ports. 
+With nginx, you can set up an IMAP, POP, and even SMTP proxy, but I skipped the SMTP part since I let the users send the mail out through the old server, more about that later.
+My idea was to set up a nginx proxy in front of the old and new mail server, depending if the user was already migrated sent the user to the new server else send the user to the old server.
+In my case, I have a router in front of my servers so I can send the IMAP/POP ports to the proxy instead of the real server. If you don't have this, you would need to move your SMTP and IMAP server on a different port put nginx on the mail ports.
 
-### Installing the system 
+### Installing the system
 
 Start with a plain Debian Jessie and install nginx-full + PHP.
 
@@ -69,7 +70,7 @@ mail {
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE
   ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
   ssl_prefer_server_ciphers on;
-  
+
   server {
     listen      143;
     protocol    imap;
@@ -107,8 +108,8 @@ mail {
 }
 ```
 
-So what is it with this auth_http and why is it needed? 
-You actually can skip the auth part, since we will be sending the request to the real IMAP server which will do the auth but you still need that auth script. The great thing about this script is that you can tell nginx which IMAP server to use based on the mail address. 
+So what is it with this auth_http and why is it needed?
+You actually can skip the auth part, since we will be sending the request to the real IMAP server which will do the auth but you still need that auth script. The great thing about this script is that you can tell nginx which IMAP server to use based on the mail address.
 
 
 ### The auth_http nginx script
@@ -210,7 +211,7 @@ function pass($server,$port){
 You need to define your IMAP servers in $backend_ip
 The authuser function would be used to authenticate the user. Since I don't really care as I pass it along to the real IMAP server it just returns "true" here.
 But think at the possibilities for a second, if you don't have the plaintext passwords of all the users somewhere ... here is the place where you could actually automate everything.
-Something like this: 
+Something like this:
 
 * User authenticates successfully
 * Check DB if user is on the old server and if so
@@ -218,21 +219,21 @@ Something like this:
     * trigger imapsync to copy all emails (you would want to do this async!)
 * so many more things come to mind
 
-The other thing you need to change is the getmailserver function. If you are doing this manually then add each migrated email to new_users and nginx will pass the connection to the new mail server, otherwise, it will go to the old one. 
+The other thing you need to change is the getmailserver function. If you are doing this manually then add each migrated email to new_users and nginx will pass the connection to the new mail server, otherwise, it will go to the old one.
 
 ### The Mail migration
 
-Before starting the migration make sure that the mail account exists on the new mail server with the **same** credentials as on the old server. 
-Then if using postfix, tell postfix to send any new emails still reaching the old server over to the new one. 
-For this, you can use the /etc/postfix/transport file and add either a single email or a whole domain and where postfix should send the emails. 
+Before starting the migration make sure that the mail account exists on the new mail server with the **same** credentials as on the old server.
+Then if using postfix, tell postfix to send any new emails still reaching the old server over to the new one.
+For this, you can use the /etc/postfix/transport file and add either a single email or a whole domain and where postfix should send the emails.
 
 ```
 livadaru.net smtp:[10.10.10.10]
 foo@example.net smtp:[10.10.10.10]
 ```
 
-this would send all emails for livadaru.net via SMTP to 10.10.10.10 and the same for foo@example.net. 
-This assures that any new mail will already reach the new mail server while the old ones are being copied. 
+this would send all emails for livadaru.net via SMTP to 10.10.10.10 and the same for foo@example.net.
+This assures that any new mail will already reach the new mail server while the old ones are being copied.
 
 Create a sync.sh script to start imapsync
 
@@ -257,25 +258,25 @@ Create a sync.sh script to start imapsync
   --pidfilelocking \
   --logfile $3
   ```
-  
+
   you can start the migration with: `./sync.sh email password logfile`
-  
+
   ```
   ./sync.sh foo@example.com verysecurepassword foo@example.com
   ```
-  
-  Yes, I use the mail address as logfile name and also as PID file name. 
-  This way checking logs is a bit easier and by using a non-standard PID file you can start multiple imapsync sessions at once. 
-  Once you finished the migration of an account, add that mail address to the new_users array in the PHP file, from this point on the users will reach the new mail server and not the old one anymore. 
-  Repeat until you migrated all users after which you can now tell them to start changing their mail settings. 
-  
+
+  Yes, I use the mail address as logfile name and also as PID file name.
+  This way checking logs is a bit easier and by using a non-standard PID file you can start multiple imapsync sessions at once.
+  Once you finished the migration of an account, add that mail address to the new_users array in the PHP file, from this point on the users will reach the new mail server and not the old one anymore.
+  Repeat until you migrated all users after which you can now tell them to start changing their mail settings.
+
   ## Next Steps
-  
-  Add some syslog to the PHP file to keep track of which users are still coming in through the proxy or check the log files on the new server since the users will all show up as using the proxy IP. 
-  Insist that the users change mail settings. 
-  
-  
+
+  Add some syslog to the PHP file to keep track of which users are still coming in through the proxy or check the log files on the new server since the users will all show up as using the proxy IP.
+  Insist that the users change mail settings.
+
+
   ## Some more things to consider
-  
+
   If you did not proxy the SMTP connection then keep SPF in mind and set the SPF record accordingly. Don't forget to fix the MX records, you could actually do that as soon as you have added all emails to the postfix transport file.
 

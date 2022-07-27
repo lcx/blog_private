@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- linux
-- mac os
+- tech
 date: "2018-01-08T08:00:00Z"
 description: ""
 draft: false
@@ -13,11 +12,12 @@ summary: Change SSH client settings to enable SSH logins to older SSH servers or
 tags:
 - linux
 - mac os
+- ssh
 title: SSH from Mac OS High Sierra to old SSH Servers
 ---
 
 
-If you are trying to connect to older ssh servers or Mikrotik routers from Mac OS High Sierra you might encounter some of these error messages: 
+If you are trying to connect to older ssh servers or Mikrotik routers from Mac OS High Sierra you might encounter some of these error messages:
 
 * `no matching host key type found. Their offer: ssh-dss`
 * `no matching cipher found. Their offer: aes192-cbc,aes128-cbc,aes256-cbc,blowfish-cbc,3des-cbc`

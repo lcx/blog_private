@@ -1,10 +1,15 @@
 ---
 author: Cristian Livadaru
+categories:
+- security
 date: "2021-11-26T10:10:30Z"
 description: ""
 draft: false
 image: /images/2021/11/antoine-giret-7_TSzqJms4w-unsplash.jpeg
 slug: flooding-phishing-with-curl
+tags:
+- security
+- phishing
 title: Flooding phishing forms with bash and curl
 ---
 

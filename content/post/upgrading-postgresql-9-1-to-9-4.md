@@ -1,7 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- sysadmin
+- tech
 date: "2018-04-27T17:17:47Z"
 description: ""
 draft: false
@@ -14,16 +14,17 @@ summary: |-
   Error: Could not create target cluster
 tags:
 - sysadmin
+- postgresql
 title: Upgrading PostgreSQL 9.1 to 9.4
 ---
 
 
-Of course when you are in the middle of an upgrade of three servers, some huge shit hits the fan when you are not expecting it. 
-Here we have postgres, I love postgres and the issue isn't really a postgres issue. 
+Of course when you are in the middle of an upgrade of three servers, some huge shit hits the fan when you are not expecting it.
+Here we have postgres, I love postgres and the issue isn't really a postgres issue.
 
 `pg_upgradecluster 9.1 main`
 
-and here you go ... 
+and here you go ...
 
 ```
 Stopping old cluster...
@@ -47,6 +48,6 @@ oh the great f\*ing world of locales. Really? That's what just ruined your eveni
 
 and retry `pg_upgradecluster 9.1 main`
 
-ah great, locales and you are friends again. Happy upgrading. 
+ah great, locales and you are friends again. Happy upgrading.
 Thx for the hint: https://gist.github.com/dideler/60c9ce184198666e5ab4
 

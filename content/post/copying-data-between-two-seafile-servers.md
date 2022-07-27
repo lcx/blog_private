@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- linux
-- sysadmin
+- tech
 date: "2022-05-19T07:17:25Z"
 description: ""
 draft: false
@@ -13,6 +12,7 @@ summary: You could just copy data between two seafile servers via seafile client
 tags:
 - linux
 - sysadmin
+- seafile
 title: Copying data between two seafile servers
 ---
 
@@ -50,7 +50,7 @@ Check if data is synced with `seaf-cli status`
 
 ```bash
 cristian@backup:~/seafile-upload/$ seaf-cli status
-# Name                                                  Status         
+# Name                                                  Status
 New_Library                                              synchronized
 Old_Library                                              synchronized
 ```

@@ -1,7 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- children quotes
+- kids
 date: "2019-08-26T05:31:41Z"
 description: ""
 draft: false

@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- voip
-- fusionpbx
+- tech
 date: "2017-12-12T15:50:44Z"
 description: ""
 draft: false
@@ -17,11 +16,11 @@ title: Changing conference voice prompts on FusionPBX
 ---
 
 
-Even if you set your fusionpbx to some other language, you might be wondering why the conference still uses English for prompts. 
-The reason for this is that the conference uses settings from the conference profile which seems to default to English but it's quite easy to fix. 
-Keep in mind, this setting applies to all domains! 
+Even if you set your fusionpbx to some other language, you might be wondering why the conference still uses English for prompts.
+The reason for this is that the conference uses settings from the conference profile which seems to default to English but it's quite easy to fix.
+Keep in mind, this setting applies to all domains!
 
-Go to Apps -> Conference Profiles and edit the profile you want. 
+Go to Apps -> Conference Profiles and edit the profile you want.
 If you want different settings (different Domains for example), you could copy the profile and create separate profiles with different languages.
 
 ![2017-12-12_17-37-18](/images/2017/12/2017-12-12_17-37-18.png)

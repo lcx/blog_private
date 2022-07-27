@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- raspberry
-- home automation
+- tech
 date: "2022-04-22T15:01:04Z"
 description: ""
 draft: false
@@ -17,6 +16,10 @@ tags:
 title: Privacy focused voice assistant with Rhasspy and Home Assistan
 ---
 
+## Privacy in voice assistants?
+Having my issues with privacy in regards to voice assistants like Alexa or
+Google home, I needed something that works without cloud services, Rhasspy delivers
+but getting there is quite a bumby ride.
 
 After a few days of research, rhasspy seems to check all my boxes and seems fairly easy to install. It can be integrated with satellite systems, seems quite configureable and integrates with different systems and has a lot of documentation. Since it has so many options of how it can be used, it also creates a lot of headache and misunderstandings for someone who is new to these things.
 
@@ -63,7 +66,7 @@ Now the LED should stop. You don't need to continue the [ESP32 Setup](https://ma
 
 Now that you have the Matrix board and your Raspberry, you can go on an install rhasspy.
 
-## Installing Docker + Rhasspy
+### Installing Docker + Rhasspy
 
 I will not explain to much here, you can read the details in the [rhasspy documentation](https://rhasspy.readthedocs.io/en/latest/installation/#docker), this part should be easy to understand.
 

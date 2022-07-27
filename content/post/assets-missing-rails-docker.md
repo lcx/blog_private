@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- rails
-- docker
+- tech
 date: "2020-03-31T11:28:31Z"
 description: ""
 draft: false

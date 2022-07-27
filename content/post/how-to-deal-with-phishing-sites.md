@@ -12,27 +12,28 @@ summary: |-
   I could just delete and ignore them, but where's the fun in that?
 tags:
 - security
+- phishing
 title: How to deal with phishing sites
 ---
 
 
 Instead of just deleting the mail, I thought to strike back and flood the site with some fake data.
 First, you need some proxy or a new server, you could use [DigitalOcean](https://m.do.co/c/bbc69fd7ab10) for example.
-Then you need to get the form fields that need to be filled: 
+Then you need to get the form fields that need to be filled:
 
 ![2018-08-01_15-54-42](/images/2018/08/2018-08-01_15-54-42.png)
 
-Put everything in this python script (source: https://en.internetwache.org/pwning-a-paypal-phishing-site-11-03-2013/) 
+Put everything in this python script (source: https://en.internetwache.org/pwning-a-paypal-phishing-site-11-03-2013/)
 
 ```python
 #!/usr/bin/python2.7
- 
+
 import random
 import urllib2
 import urllib
- 
+
 SPAMURL="***"
- 
+
 def randstr(leng):
     res = ""
     for i in xrange(0,leng):
@@ -44,7 +45,7 @@ def sendSpamReq(url):
    })
     urllib2.urlopen(urllib2.Request(url,data))
 count = 0
-while True: 
+while True:
     count=count+1
     try:
         sendSpamReq(SPAMURL)
@@ -58,11 +59,11 @@ Run the script and leave it running, this will flood the phisher with a lot of f
 
 ## Update
 
-Apparently, after 4k Mails, the phisher blocked my IP. Looks like someone want's to play. Ok, let's go, my friend. 
+Apparently, after 4k Mails, the phisher blocked my IP. Looks like someone want's to play. Ok, let's go, my friend.
 
 ![2018-08-01_16-48-38](/images/2018/08/2018-08-01_16-48-38.png)
 
-On your machine create a file called `flood-hosts` and add each IP of your server in this file, one line per IP. 
+On your machine create a file called `flood-hosts` and add each IP of your server in this file, one line per IP.
 
 Then copy the file to each server
 
@@ -72,7 +73,7 @@ for dest in $(<flood-hosts); do
 done
 ```
 
-and start it 
+and start it
 
 ```
 for dest in $(<flood-hosts); do

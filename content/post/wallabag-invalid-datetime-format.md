@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- linux
-- docker
+- tech
 date: "2021-07-19T15:19:43Z"
 description: ""
 draft: false
@@ -13,6 +12,7 @@ summary: This pesky little issue prevented me in adding a lot of links to wallab
 tags:
 - linux
 - docker
+- open source
 title: 'Wallabag: Invalid datetime format'
 ---
 
@@ -22,5 +22,5 @@ If you are encountering this error while trying to add new entries to wallabag, 
 * [https://github.com/wallabag/wallabag/issues/5116](https://github.com/wallabag/wallabag/issues/5116)
 * [https://github.com/wallabag/wallabag/issues/4764](https://github.com/wallabag/wallabag/issues/4764)
 
-The fix of changing the charset is described in the issues, but if you set up wallabag with caprover, you just need to define a new environment variable `SYMFONY__ENV__DATABASE_CHARSET` and set it to `utf8mb4` this will solve the issue for a caprover installation. A pull request was generated here: [https://github.com/caprover/one-click-apps/pull/466](https://github.com/caprover/one-click-apps/pull/466) 
+The fix of changing the charset is described in the issues, but if you set up wallabag with caprover, you just need to define a new environment variable `SYMFONY__ENV__DATABASE_CHARSET` and set it to `utf8mb4` this will solve the issue for a caprover installation. A pull request was generated here: [https://github.com/caprover/one-click-apps/pull/466](https://github.com/caprover/one-click-apps/pull/466)
 

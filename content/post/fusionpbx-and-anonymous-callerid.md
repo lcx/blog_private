@@ -1,7 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- voip
+- tech
 date: "2019-02-12T11:27:13Z"
 description: ""
 draft: false
@@ -28,10 +28,10 @@ So the same person is calling from the same server via the same connection but i
 
 ![mind-blown](/images/2019/02/mind-blown.gif)
 
-## How to fix it? 
+## How to fix it?
 
 In fusionPBX edit the `default_caller_id` dialplan and in case the caller_id_number is `anonymous` then update the `outbound_caller_id_name` and `outbound_caller_id_number` to your customers DID and add the privacy headers to send the call with a hidden callerID.
-This will result in you carrier accepting the call and sending it out with privacy headers set, so the receiver of the call will of course only see that it's anonymous call but everyone is happy. 
+This will result in you carrier accepting the call and sending it out with privacy headers set, so the receiver of the call will of course only see that it's anonymous call but everyone is happy.
 
 ![FusionPBX Anonymous callerID](/images/2019/02/2019-02-12_13-09-58.png)
 

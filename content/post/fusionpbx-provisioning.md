@@ -1,8 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- fusionpbx
-- voip
+- tech
 date: "2018-11-15T15:31:03Z"
 description: ""
 draft: false
@@ -24,7 +23,7 @@ I will assume you already have provisioning enabled, if not got to the default s
 
 ![FusionPBX Provisioning enable](/images/2018/11/2018-11-15_14-29-55.png)
 
-You might not know that you can override default settings for every domain, fusionpbx first uses the domain settings and if they are missing it will fail over to the default settings! It's awesome for what you need to set up separate provisioning settings for each client. 
+You might not know that you can override default settings for every domain, fusionpbx first uses the domain settings and if they are missing it will fail over to the default settings! It's awesome for what you need to set up separate provisioning settings for each client.
 To accomplish this, go to advanced -> domain and click on the domain, not the edit pencil on the right, you have to click on the domain.
 
 ![Fusionpbx Domains](/images/2018/11/2018-11-15_15-30-34.png)
@@ -33,7 +32,7 @@ After you click on the domain, you click on the plus sign on the right side, thi
 
 ![FusionPBX Domain Settings](/images/2018/11/2018-11-15_15-45-39.png)
 
-Create settings for http_auth_password and http_auth_user if you want separate users for HTTP provisioning auth. 
+Create settings for http_auth_password and http_auth_user if you want separate users for HTTP provisioning auth.
 
 ![2018-11-15_15-46-25](/images/2018/11/2018-11-15_15-46-25.png)
 
@@ -42,9 +41,9 @@ after you have done this, it should look something like this.
 
 that's it, you have now created a custom http auth user + password that will be used for provisioning only for this domain.
 
-Well, almost. You still need to tell fusionpbx which domain to use for provisioning, for this to work you will have to tell fusionpbx to use the current domain of each customer. You can do this by adding a separate setting for each domain, but this is duplicated work and nobody likes duplication. 
+Well, almost. You still need to tell fusionpbx which domain to use for provisioning, for this to work you will have to tell fusionpbx to use the current domain of each customer. You can do this by adding a separate setting for each domain, but this is duplicated work and nobody likes duplication.
 
-This of course requires the provisioning template to not use hardcoded values in the provisioning settings but to use the variables. For a SNOM 7xx it would look like this: 
+This of course requires the provisioning template to not use hardcoded values in the provisioning settings but to use the variables. For a SNOM 7xx it would look like this:
 
 ```
 <setting_server perm="RW">https://{$http_auth_username}:{$http_auth_password}@{$domain_name}:443{$project_path}/app/provision/index.php?mac={$mac}</setting_server>
@@ -53,18 +52,18 @@ This of course requires the provisioning template to not use hardcoded values in
 It has to be `{$domain_name}` in order to fill the current domain in the provisioning URL.
 
 ## Enforcing domain filters
-At first, I wanted to recommend to enable the `http_domain_filter` in the default settings but here is why this will actually screw you over quite bad and why you don't need it if you have set up separate passwords for each client. 
+At first, I wanted to recommend to enable the `http_domain_filter` in the default settings but here is why this will actually screw you over quite bad and why you don't need it if you have set up separate passwords for each client.
 
 1. NAPTR + A Records don't go well together. If you set an A record the NAPTR will stop working! Not sure if this is supposed to be that way or I did something wrong while testing.
 2. You might either need SSL Certs for each client or a wildcard cert.
 
 So, just set the `http_domain_filter` to false, use the main domain with valid CERT and DNS A records for provisioning.
-If you set up domain level http_user + pass for provisioning, fusionpbx will check the values from the domain where the device is attached to. Even if a client knows a second domain and mac address of a device, they won't be able to use the password from their domain to fetch the provisioning data. 
+If you set up domain level http_user + pass for provisioning, fusionpbx will check the values from the domain where the device is attached to. Even if a client knows a second domain and mac address of a device, they won't be able to use the password from their domain to fetch the provisioning data.
 I think an example would help here but I did spend half a day testing and reading PHP code, who know me better knows that I don't do well with PHP.
 
 ## I've got a 404 error
 
-If by any chance you encounter a 404 error with nginx version 1.12.1, don't freak out. Fusionpbx returns this by default when something is wrong during provisioning. 
+If by any chance you encounter a 404 error with nginx version 1.12.1, don't freak out. Fusionpbx returns this by default when something is wrong during provisioning.
 
 ```
 if ($error === "404") {
