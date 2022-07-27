@@ -1,6 +1,6 @@
 baseURL: 'https://cristian.livadaru.net'
 languageCode: en-us
-title: My personal view on things
+title: Cristian Livadaru's Blog
 theme: hugo-theme-cleanwhite
 copyright: Cristian Livadaru
 pluralizeListTitles: false
@@ -27,6 +27,35 @@ outputs:
       #    - Algolia
 params:
   header_image: 'header/dominik-vanyi-410261-2.jpg'
+  SEOTitle: Cristian Livadaru's Blog | My personal view on things
+  description: I'm Cristian, have like anyone else my own view on things, trying to keep this a personal blog and moving technical posts to a separate blog
+  slogan: My personal view on things
+  omit_categories: false
+  # image_404: ...
+  # title_404:
+  sidebar_about_description: "Dad, Software Developer, Love open source and automating things"
+  sidebar_avatar: 'header/cris.jpg'
+  friends: false
+  bookmarks: true
+  about_me: true
+  featured_tags: true
+  featured_condition_size: 1
+  friend_link:
+    - title: lcx.wien
+      href: 'https://lcx.wien'
+  bookmark_link:
+    - title: Rubular
+      href: 'https://rubular.com'
+    - title: unsplash
+      href: 'https://unsplash.com'
+  addtional_menus:
+    - title: ARCHIVE
+      href: /archive/
+        #    - title: NOTES
+        #      href: /notes/
+    - title: ABOUT
+      href: /about/
+
   social:
     rss: true
       # email: youremail@gmail.com
