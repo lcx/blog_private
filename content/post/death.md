@@ -4,7 +4,7 @@ categories:
 - life
 - kids
 date: "2022-06-23T18:29:20Z"
-description: ""
+description: "Having the death talk with your kids isn't something easy"
 draft: false
 image: https://images.unsplash.com/photo-1542003075323-2baa863b682b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fERlYXRofGVufDB8fHx8MTY1NjAxNTgzOQ&ixlib=rb-1.2.1&q=80&w=2000
 slug: death
