@@ -21,18 +21,17 @@ part](#timescaledb-to-the-rescue)
 
 I wanted to have some nice graphs for Home Assistant like I already did once
 where I got the Temperature values via [SDR](https://en.wikipedia.org/wiki/Software-defined_radio)
-from a few sensors broadcasting the temerature via radio which was then pushed
+from a few sensors broadcasting the temperature via radio which was then pushed
 via MQTT to a NodeRed running on a Pi.
-What I did not want to do however is to create something in NodeRed for each
-and every sensor I have in the house. I just want it to work for all existing
-and future sensosrs.
+What I did not want to do however is to create something in NodeRed for every sensor I have in the house. I just want it to work for all existing
+and future sensors.
 I stumbled over [Oliver Hilsky's Blog Post](https://thesmarthomejourney.com/2021/05/02/grafana-influxdb-home-assistant/)
 showing exactly what I wanted to accomplish, you install InfluxDB, add a few of
-lines of yaml to Home Assistant and you're done.
+lines of YAML to Home Assistant and you're done.
 
 ## Me and InfluxDB do not get along
 My only issue was that I'm not a fan of InfluxDB, not that something is wrong
-with it or it doesn't have a usecase, but for the things I need I always had
+with it or it doesn't have a use case, but for the things I need I always had
 issues with not wanting to learn how to query data or think about retentions
 and things like that because they are not relevant for me in this case, and
 this image from [https://howfuckedismydatabase.com/](https://howfuckedismydatabase.com/)
@@ -44,14 +43,14 @@ But, I wanted to give it a shot and just wanted to get it running.
 
 ### InfluxDB on Home Assistant not working
 The InfluxDB addon on Home Assistant seems to not be working, it installs but
-does not start up, in addition to that it shows that it's not maintained
+does not start up, in addition to that it shows that it's not been maintained
 anymore since 2021. It's much simpler to just update an external docker
-container than having to mess around with a Home Assistant addon. So I just
-went with the external installation. This is easy yo accomplish with
+container than having to mess around with a Home Assistant add-on. So I just
+went with the external installation. This is easy to accomplish with
 docker-compose but I faced the issue that when creating a new bucket I was
 placed exactly in that position of choosing a retention period. I don't know, I
-don't care, I just want graphs and let me deal with some cleanup later. At this
-point I decided to just abandon the idea of InfluDB.
+don't care, I just want graphs, and let me deal with some cleanup later. At this
+point, I decided to just abandon the idea of InfluDB.
 
 ## TimescaleDB to the rescue
 I like PostgreSQL, I know SQL, so why not just use [TimescaleDB](https://www.timescale.com/)
@@ -101,9 +100,9 @@ Postgresql `/var/lib/postgresql/data`, this is new to me, I tried Timescale
 earlier and this was not the case. It did cause me to use my first minutes of
 data due to this.
 
-Startup everything and then it's time to create the database.
+Start up everything and then it's time to create the database.
 
-### Createa the database
+### Create the database
 
 Execute a shell in the container and start psql
 ```bash
@@ -123,7 +122,7 @@ CREATE EXTENSION
 homeassistant=#
 ```
 
-This was the database creating and the timescaledb extension.
+This was the database creation and the timescaledb extension.
 
 ## Send data to timescale with ltss
 To get all the data into TimescaleDB you need to install
@@ -148,7 +147,7 @@ Once it's installed, restart your Home Assistant.
 
 ### Configure connection to TimescaleDB
 Whip up your favorite editor (which of course must be vi) and edit `config/configuration.yaml`
-adding these lines of yaml and fixing the passowrd, DBSERVER and port to your
+adding these lines of YAML and fixing the password, DBSERVER, and port to your
 environments.
 
 ```yaml
@@ -160,7 +159,7 @@ ltss:
 ```
 It's very important to use a privileged user (like postgres) for the first
 start since ltss needs to install extensions, after the initial startup you can
-change to a non privileged user.
+change to a non-privileged user.
 Validate your configuration and restart Home Assistant once more.
 While it's starting up you can watch the database being populated.
 ```
@@ -182,17 +181,17 @@ TimescaleDB. Time to get started with Grafana.
 ## Grafana
 ### Configure Grafana
 The installation was already done via docker-compose, visit the Grafana
-installation with your browser of choice and start adding a new datasource.
+installation with your browser of choice and start adding a new data source.
 
-Select PostgreSQL as source for Grafana and configure it like this:
+Select PostgreSQL as the source for Grafana and configure it like this:
 
 {{< figure src="/images/2022/07/grafana-1.png" caption="Grafana connection to Timescale DB">}}
 
-Please note that the host ist `timescaledb:5432`, since it's running on the
+Please note that the host is `timescaledb:5432`, since it's running on the
 same network in docker, it can reach it with the hostname `timescaledb` and on
-the port 5432 and not the eposed 15432 port. I also disabled TLS in this case.
+the port 5432 and not the exposed 15432 port. I also disabled TLS in this case.
 
-Next scroll down and make sure to select the correct version and enable the
+Next, scroll down and make sure to select the correct version and enable the
 TimescaleDB setting.
 
 {{< figure src="/images/2022/07/grafana-2.png" caption="Enable TimescaleDB in Grafana">}}
@@ -201,42 +200,42 @@ That's it from the Grafana connection part, now let's build some dashboards.
 
 ### Setup Dashboard
 To get an idea, this is my first dashboard.
-{{< figure src="/images/2022/07/grafana-dashboard-1.png" caption="Grafana Home Assistang Dashboard">}}
+{{< figure src="/images/2022/07/grafana-dashboard-1.png" caption="Grafana Home Assistant Dashboard">}}
 
-And if you are asking yourself what "shithole" is supposed to be, that's junk
+And if you are asking yourself what "shithole" is supposed to be, that's the junk
 room full of crap I forgot about, yes I even have a motion sensor there, stop
-judging me! And yes, my kids have been watching to much Encanto, hence the
-smarthome had to be named "La Casita", I was not allowed to call it "E-Corp".
+judging me! And yes, my kids have been watching too much Encanto, hence the
+smart-home had to be named "La Casita", I was not allowed to call it "E-Corp".
 
 I will let you build your own dashboard, just want to give a few tips along the
 way.
 
-#### ltss state is string, grafana wants numbers
+#### ltss state is a string, but grafana wants numbers
 The first issue I encountered was that grafana is expecting numbers but ltss
-saves the state as string. This makes sense if you look at the data where you
+saves the state as a string. This makes sense if you look at the data where you
 have addresses of Geolocations as state or the SSID your phone was connected to
-and all other kinds of non numerical value that Home Assistant uses.
+and all other kinds of non-numerical values that Home Assistant uses.
 But all you have to do is let TimescaleDB typecast to decimal with
 
 ```sql
 state::DECIMAL AS "value"
 ```
 
-But you might come accross a situation where you have a value of "None" as a
+But you might come across a situation where you have a value of "None" as a
 battery state in the database. This is a problem as the SQL statement will give
-you an error. The simples way for me was to just select the entries that have
+you an error. The simplest way for me was to just select the entries that have
 numbers in the state using regex.
 
 ```sql
 WHERE state ~ '[0-9]{1,3}(?:.?[0-9]{0,3})'
 ```
 
-This select Integers or Decimal numbers with up to three digits after the
+This selects Integers or Decimal numbers with up to three digits after the
 comma.
 
 Another issue I had was the long names like `sensor.sensor_bedroom_battery`
 when all I wanted was to just have `bedroom` as the metric name in Grafana.
-Again you can use postgresql string replacements, I went with regex again.
+Again you can use PostgreSQL string replacements, I went with regex again.
 
 ```sql
 SELECT
@@ -262,7 +261,7 @@ GROUP BY "time",2,3
 ORDER BY 1,2
 ```
 
-In my select statments I used `WHERE entity_id like '%battery'` to get only
+In my select statments, I used `WHERE entity_id like '%battery'` to get only
 battery data and to get temperature data I used `entity_id like 'sensor.%temperature'`, you get the idea.
 
 ### Creating alerts
@@ -272,13 +271,13 @@ Grafana alerts for the first time in this project.
 Before starting with the alerts, create a new folder in grafana as this will be
 a required selection in the alerting system without an option to create one
 during the alert creation.
-You also need to create a Time Series panel, the bar gauge or any other type
-of pannels won't have the Alert tab in Grafana.
+You also need to create a Time Series panel, the bar gauge, or any other type
+of panels won't have the Alert tab in Grafana.
 
 Clik on the alert tab.
 {{< figure src="/images/2022/07/grafana-alert-1.png" caption="Grafana alerts">}}
 
-Set your condition, I used a value < 30 to trigger the allert.
+Set your condition, I used a value < 30 to trigger the alert.
 {{< figure src="/images/2022/07/grafana-alert-2.png" caption="Grafana alert condition">}}
 
 Define labels if you want, here I use the label `channel` with the value
@@ -286,9 +285,9 @@ Define labels if you want, here I use the label `channel` with the value
 {{< figure src="/images/2022/07/grafana-alert-3.png" caption="Grafana alert labels">}}
 
 Now go to Alerting -> contact points and add a new Telegram (or whatever you
-want) as contact point.
+want) as a contact point.
 If using Telegram you need BOT API Token and the chat ID, how to get those are
-not scope of this already way to long post.
+not the scope of this already way too long post.
 
 {{< figure src="/images/2022/07/grafana-alert-4.png" caption="Grafana Telegram">}}
 
@@ -299,12 +298,12 @@ contact point in case the channel label is equal to telegram.
 
 One more thing that was not covered here is how to configure
 Grafana's URL. All alerts will have localhost in the URL for silencing for
-example. But this should be just a ENV var in the compose file. For me this is
+example. But this should be just an ENV var in the compose file. For me, this is
 already enough to know which battery needs changing.
 
 ## Warp Up
-And that's a warp! I hope I didn't forget anything, treid to take notes while
+And that's a warp! I hope I didn't forget anything, tried to take notes while
 setting everything up.
-A huge thanks goes to freol for creating the ltss integration! You can find
+A huge thank you goes to freol for creating the ltss integration! You can find
 freol on [github](https://github.com/freol35241/ltss)
 
