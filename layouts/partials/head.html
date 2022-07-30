@@ -46,7 +46,11 @@
     <meta property="twitter:description" content="{{ .Site.Params.description }}" />
     {{ end }}
 
+    {{ if .Params.twitter.card }}
+    <meta property="twitter:card" content="{{ .Params.twitter.card }}" />
+    {{ else }}
     <meta property="twitter:card" content="summary_large_image" />
+    {{ end }}
     <!-- end ogp -->
 
     <meta name="keyword"  content="{{ .Site.Params.keyword }}">
