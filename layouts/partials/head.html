@@ -8,8 +8,13 @@
     <meta property="og:type" content="article">
 
     {{ if .Params.image }}
-    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.image }}">
-    <meta property="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.image }}" />
+      {{ if findRE "^http[s]?:" .Params.image }}
+      <meta property="og:image" content="{{ .Params.image }}">
+      <meta property="twitter:image" content="{{ .Params.image }}" />
+      {{ else }}
+      <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.image }}">
+      <meta property="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.image }}" />
+      {{ end }}
     <meta property="twitter:image:alt" content="{{ .Params.title }}" />
     {{ else }}
     <meta property="og:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.header_image }}">
@@ -25,7 +30,7 @@
     <meta property="og:title" content="{{ .Site.Params.title }}" />
     <meta property="twitter:title" content="{{ .Site.Params.title }}" />
     {{ end }}
-    <meta property="twitter:creator" content="crisl_at" />
+    <meta property="twitter:creator" content="@crisl_at" />
 
     {{ if .Params.description }}
     <meta name="description" content="{{ .Params.description }}">
