@@ -4,7 +4,7 @@ categories:
 - life
 date: "2022-11-09"
 draft: false
-image: /images/2022/11/beauty-of-film.png
+image: /images/2022/11/beauty-of-film.jpg
 slug: beauty-of-film
 summary: There are some movies which are more then just movies. Pulling you in,
   taking you on a journey through time, a journey through emotions, raising
