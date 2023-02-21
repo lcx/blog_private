@@ -6,7 +6,7 @@ tags:
 - sensu
 - monitoring
 image: /images/2023/02/alert.jpg
-title: "Sensu Notifications"
+title: "📣 Sensu Notifications"
 slug: sensu-notifications
 date: 2023-02-21T06:48:42+02:00
 summary: Notifications in sensu can be complicated, but sometimes you just
@@ -17,6 +17,7 @@ summary: Notifications in sensu can be complicated, but sometimes you just
   the changes.
 draft: false
 ---
+## Dealing with notifications in Sensu
 I've been using sensu for a long time in combination with Ansible. It can get
 tricky sometimes, especially since you can't just log in to a server and add
 new monitoring. Sensu did break my heart a little when switching from ruby to
@@ -32,7 +33,8 @@ in some escalations. You could probably accomplish this by using something like
 [PagerDuty](https://pagerduty.com) but why not waste a lot more time and roll
 out your own stuff, right? 
 
-## Apprise My first approach was to send notifications to
+## Apprise
+My first approach was to send notifications to
 [Apprise](https://github.com/caronc/apprise), Apprise has one API to receive a
 notification and can then send it to one or multiple other services (Pushover,
 Pagerduty, Slack, Mattermost, Discord, Telegram ... ) so it makes sense to send
@@ -54,7 +56,8 @@ what I want and also I either don't understand how Apprise handles tags or
 [there's a bug](https://github.com/caronc/apprise-api/issues/103) So how could
 I accomplish this more dynamic processing of notifications? 
 
-## N8N This might be something that sounds completely like the wrong tool to
+## N8N
+This might be something that sounds completely like the wrong tool to
 accomplish alerts but stay with me for a moment. [N8N](https://n8n.io/)
 advertises itself with "Workflow automation for technical people" I've been
 using it extensively in the past year and there's a lot that you can do with
