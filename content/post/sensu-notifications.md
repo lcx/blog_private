@@ -15,7 +15,7 @@ summary: Notifications in sensu can be complicated, but sometimes you just
   more control on distributing the notifications. While you could do this in 
   sensu, it definitely is a pain in the ass to constantly run ansible to deploy
   the changes.
-draft: true
+draft: false
 ---
 I've been using sensu for a long time in combination with Ansible. It can get
 tricky sometimes, especially since you can't just log in to a server and add
