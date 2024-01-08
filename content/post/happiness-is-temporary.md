@@ -9,8 +9,8 @@ image: /images/2023/12/happiness-is-temporary.webp
 title: "Happiness is temporary; all scenarios lead to loss"
 slug: happiness-is-temporary
 date: 2023-12-30T20:41:42+02:00
-summary: Choose your own advernture ... fall into the happiness trap and suffer loss
-  or go the safe but dull and boring path.
+summary: If you could be really happy but knew from the start it would end in sadness,
+  would you choose that happiness or would you avoid it?
 draft: false
 ---
 # Happiness is temporary; all scenarios lead to loss.
@@ -74,4 +74,7 @@ Sure it’s fine to watch some dull movie from time to time, have some entertain
 But thinking about the inevitable ending is the wrong way to go about it.
 The fun part is the time before the ending, that time of happiness that creates stories and memories. If this period of happiness doesn’t exist, there will also be no suffering in the end, no stories, no joyful and painful memories, which bears the question: did it even mean something? What was the point of it?
 
-Just like the mentioned song ... if nobody crashes ... it wasn’t real.
+To leave you with something more to think about:
+
+> If you could be really happy but knew from the start it would end in sadness,
+would you choose that happiness or would you avoid it?
