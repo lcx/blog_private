@@ -24,7 +24,16 @@ Even though I now just realize that I lived there only 6 years (I left home when
 If you do the same thing, day in, day out, for 33 years, there are so many people, so many people growing old and even a lot of people dying in this time. Some students came to that place and meanwhile the students are parents and they came with their kids, some are even grandparents meanwhile.After such a long time, the people coming to the restaurant aren’t just clients, they are like family. For some this restaurant was like a church, my parents being bartender, cook, friend and shrink at the same time.
 
 {{< gallery >}}
-{{< galleryImg  src="/images/2022/01/carmen_und_ich---1.png" width="1536" height="1024" >}}{{< galleryImg  src="/images/2022/01/carmen_und_ich---2.png" width="1536" height="1024" >}}{{< galleryImg  src="/images/2022/01/carmen_und_ich---3.png" width="3456" height="2304" >}}{{< galleryImg  src="/images/2022/01/carmen_und_ich---4.png" width="3456" height="2304" >}}{{< galleryImg  src="/images/2022/01/carmen_und_ich---5.png" width="3456" height="2304" >}}{{< galleryImg  src="/images/2022/01/carmen_und_ich---6.png" width="640" height="480" >}}{{< galleryImg  src="/images/2022/01/carmen_und_ich---8.png" width="640" height="480" >}}{{< galleryImg  src="/images/2022/01/carmen_und_ich---9.png" width="640" height="480" >}}{{< galleryImg  src="/images/2022/01/pic-034.JPG" width="640" height="480" >}}{{< /gallery >}}
+{{< figure src="/images/2022/01/carmen_und_ich---1.png" >}}
+{{< figure src="/images/2022/01/carmen_und_ich---2.png" >}}
+{{< figure src="/images/2022/01/carmen_und_ich---3.png" >}}
+{{< figure src="/images/2022/01/carmen_und_ich---4.png" >}}
+{{< figure src="/images/2022/01/carmen_und_ich---5.png" >}}
+{{< figure src="/images/2022/01/carmen_und_ich---6.png" >}}
+{{< figure src="/images/2022/01/carmen_und_ich---8.png" >}}
+{{< figure src="/images/2022/01/carmen_und_ich---9.png" >}}
+{{< figure src="/images/2022/01/pic-034.JPG" >}}
+{{< /gallery >}}
 
 So many stories in 33 years, oh so many … The guy who came in with a loaded gun, the guy who left with his dog just to come back a few days later all patched up because he forgot his dog outside of the tram and then jumped out of the tram while it was still driving, the guy who lost his teeth after trying to steal a purse, the flipper game that provoked rage that some players paid in advance for the repair of the flipper game since they knew they will be smashing the glass window of the game, the elderly couple that you could set your time after, always coming at the very same time, sitting at the same table, every day, drinking the same amount of glasses of wine, then a coffee and then the same amount of glasses of wine again.Of course, nobody remembers the bad things and I will not stir it up now and just think of the good memories or let‘s say the entertaining ones.
 
@@ -35,4 +44,3 @@ Thinking back, all my major life events happened in that restaurants. In that re
 I think if I keep on writing I will find more and more stories and memories so I will just pour a glass of wine and drink to the era that is just about to end, and to the new era that is going to start since every ending is also a beginning.To you dear restaurant, thank you and fuck you at the same time! You know why. Rest In Peace and to many more years under new management.
 
 {{< figure src="/images/2022/01/image-1.gif" >}}
-
