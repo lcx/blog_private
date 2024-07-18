@@ -30,7 +30,12 @@ But how did this passion for Málaga even start?Well, this is kind of a funny st
 It took some years until we finally traveled for the first time to Málaga and I also don’t recall why exactly Málaga. I do recall that my ex-wife and I were looking at a site where they had fincas and rural houses you could stay at. We decided to go to a place called Cantueso in Periana, about 70 km from the airport in Málaga. We never regretted this decision and we came back to Cantueso two more times after that and still is on our my list to go back to very soon. The webcam from Cantueso became a go-to place when I was feeling down due to the weather in Austria.
 
 {{< gallery caption="Winter getaway" >}}
-{{< galleryImg  src="/images/2020/01/andalusia-lake.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="/images/2020/01/hills-of-andalusia.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="/images/2020/01/malaga-tree-1.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="/images/2020/01/view-from-periana.jpeg" width="3456" height="2298" >}}{{< galleryImg  src="/images/2020/01/wine-and-cigars.jpeg" width="2298" height="3456" >}}{{< /gallery >}}
+{{< figure src="/images/2020/01/andalusia-lake.jpeg" >}}
+{{< figure src="/images/2020/01/hills-of-andalusia.jpeg" >}}
+{{< figure src="/images/2020/01/malaga-tree-1.jpeg" >}}
+{{< figure src="/images/2020/01/view-from-periana.jpeg" >}}
+{{< figure src="/images/2020/01/wine-and-cigars.jpeg" >}}
+{{< /gallery >}}
 
 ## Great starting place
 
@@ -50,4 +55,3 @@ The downside of staying in Periana is that you need a car. During our first trip
 I even had this dream about Málaga being my winter getaway from the grey and cold weather in Vienna. After I quit my job in 2009 and started our own business I thought about living for a couple of months in Málaga during the winter since I could work remotely as well. This is something I regret I didn’t put in practice, I kept putting it off until next year, then next year came, then my first daughter was born but still, it would have been doable until school started. Now with school, this ship has sailed. Maybe it’s also just some romanticised dream that in reality would have played out differently, like dreams of living somewhere outside of the city until reality punches you in the face. Guess I will never know for sure or I can try again after we retire.
 
 So Málaga, ready or not, here we come!
-
