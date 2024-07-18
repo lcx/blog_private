@@ -7,19 +7,17 @@
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:type" content="article">
 
-    {{ if .Params.image }}
-      {{ if findRE "^http[s]?:" .Params.image }}
-      <meta property="og:image" content="{{ .Params.image }}">
-      <meta property="twitter:image" content="{{ .Params.image }}" />
-      {{ else }}
-      <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.image }}">
-      <meta property="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.image }}" />
-      {{ end }}
-    <meta property="twitter:image:alt" content="{{ .Params.title }}" />
+    {{ if .Params.thumbnail }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}">
+    <meta property="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" />
+    {{ else if .Params.image}}
+    <meta property="og:image" content="{{ .Params.image }}">
+    <meta property="twitter:image" content="{{ .Params.image }}" />
     {{ else }}
     <meta property="og:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.header_image }}">
     <meta property="twitter:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.header_image }}" />
     {{ end }}
+    <meta property="twitter:image:alt" content="{{ .Params.title }}" />
 
     {{ if .Params.title }}
     <meta name="title" content="{{ .Params.title }}" />
@@ -36,20 +34,16 @@
     <meta name="description" content="{{ .Params.description }}">
     <meta property="og:description" content="{{ .Params.description }}" />
     <meta property="twitter:description" content="{{ .Params.description }}" />
-    {{ else if .Params.summary }}
-    <meta name="description" content="{{ .Params.summary }}">
-    <meta property="og:description" content="{{ .Params.summary }}" />
-    <meta property="twitter:description" content="{{ .Params.summary }}" />
     {{ else }}
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta property="og:description" content="{{ .Site.Params.description }}" />
     <meta property="twitter:description" content="{{ .Site.Params.description }}" />
     {{ end }}
 
-    {{ if .Params.twitter.card }}
-    <meta property="twitter:card" content="{{ .Params.twitter.card }}" />
+    {{ if .Params.summary }}
+    <meta property="twitter:card" content="{{ .Params.summary }}" />
     {{ else }}
-    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:card" content="summary" />
     {{ end }}
     <!-- end ogp -->
 
@@ -74,7 +68,7 @@
     <link rel="stylesheet" href="{{ "css/zanshang.css" | relURL }}">
 
     <!-- Custom Fonts -->
-    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ "css/font-awesome.all.min.css" | relURL }}">
 
     <!--  Custom CSS  -->
     {{ range .Site.Params.custom_css -}}
@@ -90,9 +84,16 @@
     <!-- Hux Theme JavaScript -->
     <script src="{{ "js/hux-blog.min.js" | relURL }}"></script>
 
+    <!-- lazy load image JavaScript -->
+    <script src="{{ "js/lazysizes.min.js" | relURL }}"></script>
+
     <!-- Custom JS -->
     {{ range .Site.Params.custom_js }}
     <script src="{{ . | absURL }}"></script>
     {{ end }}
     <script defer data-domain="cristian.livadaru.net" src="https://stats.cvx.es/js/script.js"></script>
 </head>
+
+{{ if .Site.GoogleAnalytics }}
+{{ template "_internal/google_analytics.html" . }}
+{{ end }}

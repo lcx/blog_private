@@ -10,7 +10,7 @@
     <!-- Short About -->
 	{{ if .Site.Params.about_me }}
     <section class="visible-md visible-lg">
-	<!--<hr><h5><a href="{{ "/top/about" | relLangURL }}">ABOUT ME</a></h5>-->
+	<!--<hr><h5><a href="{{ "/about" | relLangURL }}">ABOUT ME</a></h5>-->
         <div class="short-about">
             {{ with .Site.Params.sidebar_avatar }}
             <a href="{{ "/about" | relLangURL }}">
@@ -34,7 +34,7 @@
                {{ end }}
                {{ with .Site.Params.social.twitter }}
                <li>
-                   <a rel="me" href="{{ . }}">
+                   <a href="{{ . }}">
                        <span class="fa-stack fa-lg">
                            <i class="fas fa-circle fa-stack-2x"></i>
                            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
