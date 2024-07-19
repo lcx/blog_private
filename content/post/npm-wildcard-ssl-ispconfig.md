@@ -74,4 +74,8 @@ Backup this file, remove the entry and try again. You can now enjoy your wildcar
 
 I have created an issue with [ISPconfig](https://git.ispconfig.org/ispconfig/ispconfig3/-/issues/6747)
 
+Later Edit (2024-07-19): The issue is actually coming from [certbot-dns-ispconfig](https://github.com/m42e/certbot-dns-ispconfig/issues/12)
+was fixed but the version installed by `pip install` will get an old version that still contains this problem.
+It seems that ISPconfig might integrate a fix on their side as well, so fingers crossed.
+
 Photo by <a href="https://unsplash.com/@wocintechchat?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christina @ wocintechchat.com</a> on <a href="https://unsplash.com/photos/woman-in-black-top-using-surface-laptop-glRqyWJgUeY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
