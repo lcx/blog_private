@@ -11,9 +11,9 @@ summary: "You have lots of databases and you want to back them up to a central l
   server? Minio S3 is a great solution for this and with Docker it's easy to set up."
 draft: false
 tags:
-- ssl
-- letsencrypt
-- nginx-proxy-manager
+- docker
+- sysadmin
+- backup
 ---
 
 Before I start with the actual backup and setup, let me send a huge thank you to
