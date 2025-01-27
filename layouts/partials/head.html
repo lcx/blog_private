@@ -94,6 +94,6 @@
     <script defer data-domain="cristian.livadaru.net" src="https://stats.cvx.es/js/script.js"></script>
 </head>
 
-{{ if .Site.GoogleAnalytics }}
+{{ if .Site.Config.Services.GoogleAnalytics.ID }}
 {{ template "_internal/google_analytics.html" . }}
 {{ end }}

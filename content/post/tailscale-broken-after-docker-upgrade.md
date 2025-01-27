@@ -2,7 +2,6 @@
 author: Cristian Livadaru
 categories:
 - tech
-- docker
 title: "Tailscale Broken After Docker Upgrade"
 image:
 date: 2025-01-21T18:13:25+01:00
@@ -10,7 +9,7 @@ slug: tailscale-broken-after-docker-upgrade
 tags:
 - docker
 - tailscale
-draft: true
+draft: false
 summary: After updating my linux server, which installed containerd.io 1.7.24,
     tailscale inside docker stopped working.
 ---
