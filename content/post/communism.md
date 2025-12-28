@@ -4,7 +4,7 @@ categories:
 - rant
 - life
 title: "We're heading towards a dark future"
-image: /images/2025/02/romanian_revolution_in_pictures_1989.jpg
+image: "/images/2025/02/romanian_revolution_in_pictures_1989.jpg"
 date: 2025-02-22T14:16:28+01:00
 slug: communism
 summary: Current political events are bringing up too many memories that shouldn’t be brought back.

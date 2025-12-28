@@ -11,7 +11,7 @@ summary: Many things in life start based on a coincidence. Some might say it's d
     started are worth sharing.
 tags:
 - life
-draft: true
+draft: false
 ---
 # Coincidences
 There are people who think that there is no such thing like coincidences and that everything is destiny and some plan of the universe and then we have the people thinking that think it’s just a coincidence. I belong to the latter group of people.
