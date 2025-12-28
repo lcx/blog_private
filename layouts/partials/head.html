@@ -11,13 +11,13 @@
     <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}">
     <meta property="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" />
     {{ else if .Params.image}}
-    <meta property="og:image" content="{{ .Params.image }}">
-    <meta property="twitter:image" content="{{ .Params.image }}" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.image }}">
+    <meta property="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.image }}" />
     {{ else }}
     <meta property="og:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.header_image }}">
     <meta property="twitter:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.header_image }}" />
     {{ end }}
-    <meta property="twitter:image:alt" content="{{ .Params.title }}" />
+    <meta property="twitter:image:alt" content="{{ .Site.BaseURL }}/{{ .Params.title }}" />
 
     {{ if .Params.title }}
     <meta name="title" content="{{ .Params.title }}" />
@@ -39,6 +39,8 @@
     <meta property="og:description" content="{{ .Site.Params.description }}" />
     <meta property="twitter:description" content="{{ .Site.Params.description }}" />
     {{ end }}
+
+    <meta property="og:url" content="{{ .Permalink }}" />
 
     {{ if .Params.summary }}
     <meta property="twitter:card" content="{{ .Params.summary }}" />
@@ -69,6 +71,13 @@
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="{{ "css/font-awesome.all.min.css" | relURL }}">
+
+    <!-- KaTeX CSS  -->
+    {{ $noop := .WordCount }}
+    {{ if .Page.Store.Get "hasMath" -}}
+        {{ partial "math/katex-css.html" . -}}
+        {{ partial "math/katex-fonts.html" . -}}
+    {{ end -}}
 
     <!--  Custom CSS  -->
     {{ range .Site.Params.custom_css -}}
