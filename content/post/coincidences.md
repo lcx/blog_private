@@ -25,7 +25,9 @@ On my way, I met a friend from my Grandmothers village. The chances of this happ
 Met with him and some of his friends later, some new friendships started, one led to me starting a company in Romania with one of these new friends and a few great friendships started that day.
 
 ## The Blog comment
-I don’t recall when exactly I wrote a blog post, some time before 2009. A blog post about ISTQB Certified testers and the training my former employee was sending us to. It was a rant about how I pretty much found it a waste of time.
+~~I don’t recall when exactly I wrote a blog post, some time before 2009.~~
+I actually found a backup and retored the [blog post from 2006!](/2006-12-06-i-am-becoming-a-istqb-certified-tester)
+A blog post about ISTQB Certified testers and the training my former employee was sending us to. It was a rant about how I pretty much found it a waste of time.
 Back then I was using Wordpress, having comments enabled on my blog and here comes Ovidiu and writes a comment that he very much thinks ISTQB is actually something very useful.
 Little did any one of us know what domino effect this short comment would start.
 At that time Ovidiu was just a random stranger on the internet to me, same for him, I was a random stranger to him.

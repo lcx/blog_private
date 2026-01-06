@@ -3,38 +3,23 @@
 
 # octohug.rb
 #
-# Converts Octopress posts to Hugo format
-#   - Converts YAML header to TOML format
-#   - Converts categories and tags to Hugo format
-#   - Replaces include_code with file contents
-#   - Generates slug from filename and date
+# Converts Octopress posts to Hugo format with YAML frontmatter
+#   - Keeps YAML format (--- delimiters)
+#   - Extracts date from filename
+#   - Creates slug from filename without date
+#   - Converts permalink to url
+#   - Adds hardcoded author
+#   - Adds draft: false
+#   - Preserves original filename with date
 #
 # Usage: ruby octohug.rb <octopress_file> [options]
-#
-# Based on: http://codebrane.com/blog/2015/09/10/migrating-from-octopress-to-hugo/
 
 require 'optparse'
 require 'fileutils'
 
-# Simple titleize implementation (no external gem needed)
-class String
-  SMALL_WORDS = %w[a an and as at but by for in of on or the to].freeze
-
-  def titleize
-    words = split
-    words.map.with_index do |word, index|
-      if index.zero? || !SMALL_WORDS.include?(word.downcase)
-        word.capitalize
-      else
-        word.downcase
-      end
-    end.join(' ')
-  end
-end
-
 class OctopressToHugoConverter
   HEADER_DELIMITER = '---'
-  HUGO_HEADER_DELIMITER = '+++'
+  AUTHOR = 'Cristian Livadaru'
 
   def initialize(input_file, output_dir, code_dir: 'source/downloads/code')
     @input_file = input_file
@@ -49,65 +34,71 @@ class OctopressToHugoConverter
     end
 
     content = File.read(@input_file)
-    filename_without_date = extract_filename_without_date
+    file_info = extract_file_info
 
-    return false unless filename_without_date
+    return false unless file_info
 
-    hugo_content = process_content(content, filename_without_date)
-    write_hugo_file(filename_without_date, hugo_content)
+    hugo_content = process_content(content, file_info)
+    write_hugo_file(file_info[:original_filename], hugo_content)
 
     true
   end
 
   private
 
-  def extract_filename_without_date
+  def extract_file_info
     basename = File.basename(@input_file)
-    match = basename.match(/^\d{4}-\d{2}-\d{2}-(.*)\.m(?:arkdown|d)$/)
+    match = basename.match(/^(\d{4})-(\d{2})-(\d{2})-(.*)\.m(?:arkdown|d)$/)
 
     unless match
       warn "Error: Filename '#{basename}' doesn't match expected pattern (YYYY-MM-DD-title.md)"
       return nil
     end
 
-    match[1]
+    year, month, day, slug = match.captures
+    date = "#{year}-#{month}-#{day}"
+
+    {
+      original_filename: basename,
+      date: date,
+      slug: slug,
+      url: "/#{year}/#{month}/#{day}/#{slug}/"
+    }
   end
 
-  def process_content(content, filename_without_date)
+  def process_content(content, file_info)
     lines = content.lines
     output_lines = []
 
     state = {
       in_header: false,
-      header_seen: false,
+      header_closed: false,
       in_categories: false,
       in_tags: false,
       categories: [],
       tags: [],
-      date: nil
+      title: nil,
+      has_url: false
     }
 
     lines.each do |line|
       line = line.chomp
-      processed = process_line(line, state, filename_without_date)
-      output_lines << processed if processed
+      result = process_line(line, state, file_info)
+      output_lines.concat(Array(result)) if result
     end
 
-    # Close any open arrays at end of file
-    output_lines << finalize_arrays(state)
-
-    output_lines.compact.join("\n")
+    output_lines.join("\n") + "\n"
   end
 
-  def process_line(line, state, filename_without_date)
+  def process_line(line, state, file_info)
     # Header delimiter
     if line == HEADER_DELIMITER
-      return handle_header_delimiter(state)
+      return handle_header_delimiter(state, file_info)
     end
 
     # Inside header
-    if state[:in_header]
-      return process_header_line(line, state, filename_without_date)
+    if state[:in_header] && !state[:header_closed]
+      return process_header_line(line, state, file_info)
     end
 
     # Content area - handle include_code
@@ -118,44 +109,35 @@ class OctopressToHugoConverter
     line
   end
 
-  def handle_header_delimiter(state)
-    result = nil
-
+  def handle_header_delimiter(state, file_info)
     if state[:in_header]
-      # Closing header - finalize arrays first
-      result = finalize_arrays(state)
-      state[:in_header] = false
+      # Closing header - build the new frontmatter
+      state[:header_closed] = true
+      return build_frontmatter(state, file_info)
     else
       state[:in_header] = true
-      state[:header_seen] = true
-    end
-
-    # Return delimiter and any finalized content
-    if result && !result.empty?
-      "#{result}\n#{HUGO_HEADER_DELIMITER}"
-    else
-      HUGO_HEADER_DELIMITER
+      return nil # Don't output opening delimiter yet
     end
   end
 
-  def process_header_line(line, state, filename_without_date)
+  def process_header_line(line, state, file_info)
     # Categories start
-    if line.match?(/^categories:/)
+    if line.match?(/^categories:\s*$/)
       state[:in_categories] = true
       state[:in_tags] = false
       return nil
     end
 
     # Tags start
-    if line.match?(/^tags:/)
+    if line.match?(/^tags:\s*$/)
       state[:in_tags] = true
       state[:in_categories] = false
       return nil
     end
 
     # Category/tag item
-    if match = line.match(/^- (.*)/)
-      item = match[1].gsub(/['"]/, '')
+    if match = line.match(/^\s+-\s+(.*)/)
+      item = match[1].gsub(/['"]/, '').strip
       if state[:in_categories]
         state[:categories] << item
       elsif state[:in_tags]
@@ -166,75 +148,68 @@ class OctopressToHugoConverter
 
     # If we hit another key, close categories/tags
     if line.match?(/^\w+:/) && (state[:in_categories] || state[:in_tags])
-      result = finalize_arrays(state)
       state[:in_categories] = false
       state[:in_tags] = false
-      return [result, process_header_key(line, state, filename_without_date)].compact.join("\n")
     end
 
-    process_header_key(line, state, filename_without_date)
-  end
-
-  def process_header_key(line, state, filename_without_date)
-    case line
-    when /^date:\s*(.+)/
-      date_value = $1.split.first # Get just the date part
-      state[:date] = date_value
-      slug = "#{date_value.tr('-', '/')}/#{filename_without_date}"
-      "date = \"#{date_value}\"\nslug = \"#{slug}\""
-
-    when /^title:\s*/
-      # Generate title from filename for URL consistency
-      title = filename_without_date.tr('-', ' ').titleize
-      "title = \"#{title}\""
-
-    when /^description:\s*(.+)/
-      "description = #{$1}"
-
-    when /^keywords:\s*(.+)/
-      keywords = $1.gsub('"', '').split(',').map(&:strip)
-      formatted = keywords.map { |k| "\"#{k}\"" }.join(', ')
-      "keywords = [#{formatted}]"
-
-    when /^published:\s*false/
-      'published = false'
-
-    when /^(?:layout|author|comments|slug|wordpress_id):/
-      # Skip these fields
-      nil
-
-    else
-      # Pass through other lines (empty lines, unknown fields)
-      line.empty? ? nil : line
+    # Extract title
+    if match = line.match(/^title:\s*["']?(.+?)["']?\s*$/)
+      state[:title] = match[1]
+      return nil
     end
+
+    # Extract permalink/url
+    if match = line.match(/^(?:permalink|url):\s*(.+)/)
+      state[:has_url] = true
+      state[:url] = match[1].strip
+      return nil
+    end
+
+    # Skip these fields entirely
+    if line.match?(/^(?:layout|author|date|slug|comments|wordpress_id|published):/)
+      return nil
+    end
+
+    nil
   end
 
-  def finalize_arrays(state)
-    result = []
+  def build_frontmatter(state, file_info)
+    lines = []
+    lines << HEADER_DELIMITER
+    lines << "author: #{AUTHOR}"
+    lines << "title: \"#{state[:title] || file_info[:slug].tr('-', ' ').capitalize}\""
+    lines << "date: #{file_info[:date]}"
 
+    # Use extracted URL or generate from file info
+    url = state[:has_url] ? state[:url] : file_info[:url]
+    lines << "url: #{url}"
+
+    lines << "slug: #{file_info[:slug]}"
+
+    # Categories
     if state[:categories].any?
-      formatted = state[:categories].map { |c| "\"#{c}\"" }.join(', ')
-      result << "Categories = [#{formatted}]"
-      state[:categories] = []
+      lines << "categories:"
+      state[:categories].each do |cat|
+        lines << "  - #{cat}"
+      end
     end
 
+    # Tags
     if state[:tags].any?
-      formatted = state[:tags].map { |t| "\"#{t}\"" }.join(', ')
-      result << "Tags = [#{formatted}]"
-      state[:tags] = []
+      lines << "tags:"
+      state[:tags].each do |tag|
+        lines << "  - #{tag}"
+      end
     end
 
-    result.empty? ? nil : result.join("\n")
+    lines << "draft: false"
+    lines << HEADER_DELIMITER
+
+    lines
   end
 
   def process_include_code(line)
-    # Parse include_code directive
-    # Formats:
-    #   {% include_code [Title] lang:language path/to/file %}
-    #   {% include_code [Title] path/to/file %}
     parts = line.split
-
-    # Get the file path (second to last element, before closing %})
     file_path = parts[-2]
     full_path = File.join(@code_dir, file_path)
 
@@ -244,13 +219,14 @@ class OctopressToHugoConverter
       "<pre><code>\n#{code_content}</code></pre>"
     else
       warn "Warning: Code file '#{full_path}' not found"
-      line # Return original line if file not found
+      line
     end
   end
 
-  def write_hugo_file(filename_without_date, content)
+  def write_hugo_file(original_filename, content)
     FileUtils.mkdir_p(@output_dir)
-    output_path = File.join(@output_dir, "#{filename_without_date}.md")
+    # Keep original filename with date
+    output_path = File.join(@output_dir, original_filename.sub(/\.markdown$/, '.md'))
 
     File.write(output_path, content)
     puts "Converted: #{@input_file} -> #{output_path}"
