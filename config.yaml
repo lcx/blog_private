@@ -48,7 +48,7 @@ params:
       href: 'https://rubular.com'
     - title: unsplash
       href: 'https://unsplash.com'
-  addtional_menus:
+  additional_menus:
     - title: ARCHIVE
       href: /archive/
         #    - title: NOTES
