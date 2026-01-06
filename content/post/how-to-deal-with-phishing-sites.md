@@ -1,7 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- security
+- tech
 date: "2018-08-01T12:16:24Z"
 description: ""
 draft: false
@@ -82,4 +82,3 @@ done
 ```
 
 and you can start it several times of course.
-
