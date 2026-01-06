@@ -1,17 +1,21 @@
 ---
 author: Cristian Livadaru
-categories:
-- tech
-- rant
-title: "I Am Becoming a Istqb Certified Tester"
+title: "I am becoming a ISTQB Certified Tester"
 date: 2006-12-06
-slug: 2006-12-06-i-am-becoming-a-istqb-certified-tester
-summary: I usually don’t post blogs regarding my work but I think this one is worthy for being blogged.
+url: /2006/12/06/i-am-becoming-a-istqb-certified-tester/
+slug: i-am-becoming-a-istqb-certified-tester
+categories:
+  - rant
 draft: false
 ---
-I usually don’t post blogs regarding my work but I think this one is worthy for being blogged.
-Last month I attempted the first part in Budapest. “ISTQB – Certified Tester, foundation level” I was rather optimistic about this Certification, or rather about the seminary and learning some new things, but I was quite disappointed. Things like skipping pages from the material but then get questions about that skipped material at the exam. The material was also extended, my colleagues that did that seminary one year ago, had 25 pages in the “syllabus” we (the 4 of us that didn’t have time one year ago) had the same 3 days, but our syllabus had now 73 pages.
+#
 
+I usually don’t post blogs regarding my work but I think this one is worthy for being blogged.
+Last month I attempted the first part in Budapest.
+
+“ISTQB – Certified Tester, foundation level”
+
+I was rather optimistic about this Certification, or rather about the seminary and learning some new things, but I was quite disappointed. Things like skipping pages from the material but then get questions about that skipped material at the exam. The material was also extended, my colleagues that did that seminary one year ago, had 25 pages in the “syllabus” we (the 4 of us that didn’t have time one year ago) had the same 3 days, but our syllabus had now 73 pages.
 Things like the moderator not knowing answers to example questions without looking at the result page didn’t really increase my mood and the trust in this seminary.
 
 But then finally the day of the exam came, since I signed not to tell any questions that came to the exam I will not do this here (well this is actually just an excuse for my bad memory, I didn’t remember one single question!). The questions where real stupid, things like which is not false or other traps like this and playing around with words. This has nothing to do testing the fact if you understood something in that seminary or if you are a good tester. It just tests if you have a good memory and can learn a lot of useless stuff within 3 days and remember it word by word. Like I expected I did not pass the exam but… the exam was reviewed and due to lack of the Translation (material and Seminary was English due to the fact that it was held in Budapest where some Hungarian colleagues also participated) some Questions where invalid so I did pass the exam after this review. Funny isn’t it? Why wasn’t the exam reviewed after the translation? This from my point of view show that this is rather a joke then some certificate that one should take serious! Also the fact that the exam of my colleague from Hungary was not reviewed show how unprofessional this whole thing is (maybe because he didn’t complaint, but it should be the same right for everyone … )
@@ -52,4 +56,4 @@ Here some more things to think about:
 > 11. Send certificates (suitable for framing) to the passers. Make sure to tell them to add the certificate acronym to their email signature. (Free publicity; help distinguish the “winners” from the “losers”.)
 > 12. Expire the certificate in three years, so certificate holders are required to recertify. (Extra dollars, and helps clear the honor roll of deadbeats.) Make sure the recertification journal is as paper-intensive as possible. (Don’t want to make things too easy, again a respect issue.
 
-So before spending money on some useless certificate … Read some books, it's more efficient and cheaper!
+So before spending money on some useless certificate … Read some books, its more efficient and cheaper!

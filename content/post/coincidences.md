@@ -26,7 +26,7 @@ Met with him and some of his friends later, some new friendships started, one le
 
 ## The Blog comment
 ~~I don’t recall when exactly I wrote a blog post, some time before 2009.~~
-I actually found a backup and retored the [blog post from 2006!](/2006-12-06-i-am-becoming-a-istqb-certified-tester)
+I actually found a backup and retored the [blog post from 2006!](/2006/12/06/i-am-becoming-a-istqb-certified-tester/)
 A blog post about ISTQB Certified testers and the training my former employee was sending us to. It was a rant about how I pretty much found it a waste of time.
 Back then I was using Wordpress, having comments enabled on my blog and here comes Ovidiu and writes a comment that he very much thinks ISTQB is actually something very useful.
 Little did any one of us know what domino effect this short comment would start.
@@ -35,6 +35,9 @@ I honestly have no idea what Ovidiu was searching to land on that blog post, but
 The company I was working for back then was hiring people and Ovidiu was a great fit.
 Long story short, he came for an interview, got hired, relocated to Austria and this was the beginning of a great friendship and Ovidiu became my best friend.
 A weird internet search, a random blog post, a little comment ...
+Thanks to [archive.org](https://web.archive.org/web/20090106133848/http://cristian.livadaru.net/2006/12/06/i-am-becoming-a-istqb-certified-tester/#comments) for the backup.
+
+{{< figure src="/images/2025/12/comment-istqb.png" caption="comment on the blog post" >}}
 
 ## The Travel Channel
 Back in the day when I used to have cable TV, there was this travel channel, more like home shopping for holidays. I hated that channel, always skipped it, except for this one time. Something caught my eye or I have no idea why I stopped.

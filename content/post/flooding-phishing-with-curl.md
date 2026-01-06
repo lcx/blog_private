@@ -1,7 +1,7 @@
 ---
 author: Cristian Livadaru
 categories:
-- security
+- tech
 date: "2021-11-26T10:10:30Z"
 description: ""
 draft: false
@@ -49,4 +49,3 @@ do
 nothing fancy but should be enough to fill up the phishing site with a lot of crap data.
 
 Photo by [Antoine GIRET](https://unsplash.com/@antoinegiret?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/trash?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-
