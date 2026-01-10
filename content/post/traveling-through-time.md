@@ -11,7 +11,12 @@ summary: When blogs started to pop up, I questioned the sense of it but did even
 tags:
 - life
 - memories
-draft: true
+comments:
+  host: mastodon.social
+  username: crisl_at
+  id: 115871225555451915
+  blockedcomments:
+draft: false
 ---
 # Traveling through time
 I started my blogging journey sometime around 2004. Blogs started to pop-up like mushrooms for a while, or actually web-log as they where called back then.

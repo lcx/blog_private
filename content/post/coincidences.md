@@ -11,6 +11,11 @@ summary: Many things in life start based on a coincidence. Some might say it's d
     started are worth sharing.
 tags:
 - life
+comments:
+  host: mastodon.social
+  username: crisl_at
+  id: 115799572783901957
+  blockedcomments:
 draft: false
 ---
 # Coincidences

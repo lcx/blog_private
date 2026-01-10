@@ -1,0 +1,53 @@
+{{- if .Params.comments }}
+{{- if and .Params.comments.host .Params.comments.username .Params.comments.id }}
+{{- if and (ge (len (printf "%s" .Params.comments.host)) 5) (ge (len (printf "%s" .Params.comments.username)) 1) (ge (len (printf "%s" .Params.comments.id)) 5) }}
+                <hr>
+<h2>Comments</h2>
+
+<noscript>
+  <div id="error">
+    Please enable *JavaScript* to view the comments powered by the Fediverse.
+  </div>
+</noscript>
+
+<p>With an account on the Fediverse or Mastodon, you can respond to this <a href="https://{{ .Params.comments.host }}/@{{ .Params.comments.username }}/{{ .Params.comments.id }}">post</a>. Known replies are displayed below:</p>
+
+<p id="mastodon-comments-list" class="d-none"><button type="button" class="btn btn-outline-secondary" type="button" onclick="respondToVisibility(comments, loadComments)">Load Comments from Fediverse</button><br/><br/>
+Note: This will load data from <a href="https://{{ .Params.comments.host }}/">{{ .Params.comments.host }}</a>.</p>
+
+<script src="{{ "js/purify.min.js" | relURL }}" ></script>
+
+<script src="{{ "js/comments.js" | relURL }}" ></script>
+
+<script type="text/javascript">
+  var host = '{{ .Params.comments.host }}';
+  var user = '{{ .Params.comments.username }}';
+  var id = '{{ .Params.comments.id }}'
+
+  var commentsLoaded = false;
+
+  var blockedToots = [
+{{- with .Params.comments.blockedcomments }}
+{{- range . }}
+{{ . }},
+{{- end }}
+{{- end }}
+  ];
+
+  var comments = document.getElementById("mastodon-comments-list");
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // toggle the "Load Comments" button visible
+    if (comments.classList.contains('d-none')) {
+      comments.classList.remove('d-none');
+    }
+  });
+
+</script>
+
+{{ $comments := resources.Get "css/comments.css" }}
+{{ $style := $comments | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+{{ end -}}
+{{ end -}}
+{{ end -}}

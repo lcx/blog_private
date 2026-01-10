@@ -55,7 +55,9 @@ params:
         #      href: /notes/
     - title: ABOUT
       href: /about/
-
+  comments:
+    host: mastodon.social
+    username: "crisl_at"
   social:
     rss: true
       # email: youremail@gmail.com
