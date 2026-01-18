@@ -18,9 +18,9 @@ summary: One decision, one choice, it was the start of my tech journey. Still as
 comments:
   host: mastodon.social
   username: crisl_at
-  id:
+  id: 115916037088551171
   blockedcomments:
-draft: true
+draft: false
 ---
 
 # How I got into tech
