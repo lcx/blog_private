@@ -9,6 +9,11 @@ image: /images/2023/12/happiness-is-temporary.webp
 title: "Happiness is temporary; all scenarios lead to loss"
 slug: happiness-is-temporary
 date: 2023-12-30T20:41:42+02:00
+comments:
+  host: mastodon.social
+  username: crisl_at
+  id: 115968679694377949
+  blockedcomments:
 summary: If you could be really happy but knew from the start it would end in sadness,
   would you choose that happiness or would you avoid it?
 draft: false
